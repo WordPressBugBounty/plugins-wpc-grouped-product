@@ -1,0 +1,1 @@
+# plugins-wpc-grouped-product
