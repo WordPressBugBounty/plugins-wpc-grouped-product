@@ -3,9 +3,9 @@ Contributors: wpclever
 Donate link: https://wpclever.net
 Tags: woocommerce, wpc, group, grouped, kits
 Requires at least: 4.0
-Tested up to: 6.6
-Version: 5.1.1
-Stable tag: 5.1.1
+Tested up to: 6.7
+Version: 5.1.2
+Stable tag: 5.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +93,9 @@ Please try other plugins from us:
 5. Almost done! click Save and see the result
 
 == Changelog ==
+
+= 5.1.2 =
+* Added: Carousel layout
 
 = 5.1.1 =
 * Fixed: Add price suffix

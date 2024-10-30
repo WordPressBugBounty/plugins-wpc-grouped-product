@@ -289,6 +289,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <option value="grid-2" <?php selected( $layout, 'grid-2' ); ?>><?php esc_html_e( 'Grid - 2 columns', 'wpc-grouped-product' ); ?></option>
                                                 <option value="grid-3" <?php selected( $layout, 'grid-3' ); ?>><?php esc_html_e( 'Grid - 3 columns', 'wpc-grouped-product' ); ?></option>
                                                 <option value="grid-4" <?php selected( $layout, 'grid-4' ); ?>><?php esc_html_e( 'Grid - 4 columns', 'wpc-grouped-product' ); ?></option>
+                                                <option value="carousel-2" <?php selected( $layout, 'carousel-2' ); ?>><?php esc_html_e( 'Carousel - 2 columns', 'wpc-grouped-product' ); ?></option>
+                                                <option value="carousel-3" <?php selected( $layout, 'carousel-3' ); ?>><?php esc_html_e( 'Carousel - 3 columns', 'wpc-grouped-product' ); ?></option>
+                                                <option value="carousel-4" <?php selected( $layout, 'carousel-4' ); ?>><?php esc_html_e( 'Carousel - 4 columns', 'wpc-grouped-product' ); ?></option>
                                             </select> </label>
                                     </td>
                                 </tr>
@@ -779,6 +782,10 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 		}
 
 		function enqueue_scripts() {
+			// carousel
+			wp_enqueue_style( 'slick', WOOSG_URI . 'assets/slick/slick.css' );
+			wp_enqueue_script( 'slick', WOOSG_URI . 'assets/slick/slick.min.js', [ 'jquery' ], WOOSG_VERSION, true );
+
 			wp_enqueue_style( 'woosg-frontend', WOOSG_URI . 'assets/css/frontend.css', [], WOOSG_VERSION );
 			wp_enqueue_script( 'woosg-frontend', WOOSG_URI . 'assets/js/frontend.js', [ 'jquery' ], WOOSG_VERSION, true );
 			wp_localize_script( 'woosg-frontend', 'woosg_vars', apply_filters( 'woosg_vars', [
@@ -795,7 +802,30 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 					'add_to_cart'              => WPCleverWoosg_Helper()::localization( 'button_single', esc_html__( 'Add to cart', 'wpc-grouped-product' ) ),
 					'select_options'           => WPCleverWoosg_Helper()::localization( 'button_select', esc_html__( 'Select options', 'wpc-grouped-product' ) ),
 					'alert_selection'          => WPCleverWoosg_Helper()::localization( 'alert_selection', esc_html__( 'Please select a purchasable variation for [name] before adding this grouped product to the cart.', 'wpc-grouped-product' ) ),
-					'alert_empty'              => WPCleverWoosg_Helper()::localization( 'alert_empty', esc_html__( 'Please choose at least one of the listed products before adding this grouped product to the cart.', 'wpc-grouped-product' ) )
+					'alert_empty'              => WPCleverWoosg_Helper()::localization( 'alert_empty', esc_html__( 'Please choose at least one of the listed products before adding this grouped product to the cart.', 'wpc-grouped-product' ) ),
+					'carousel_params'          => apply_filters( 'woosg_carousel_params', json_encode( apply_filters( 'woosg_carousel_params_arr', [
+						'dots'           => true,
+						'arrows'         => true,
+						'infinite'       => false,
+						'adaptiveHeight' => true,
+						'rtl'            => is_rtl(),
+						'responsive'     => [
+							[
+								'breakpoint' => 768,
+								'settings'   => [
+									'slidesToShow'   => 2,
+									'slidesToScroll' => 2
+								]
+							],
+							[
+								'breakpoint' => 480,
+								'settings'   => [
+									'slidesToShow'   => 1,
+									'slidesToScroll' => 1
+								]
+							]
+						]
+					] ) ) ),
 				] )
 			);
 		}
@@ -1337,6 +1367,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <option value="grid-2" <?php selected( $layout, 'grid-2' ); ?>><?php esc_html_e( 'Grid - 2 columns', 'wpc-grouped-product' ); ?></option>
                                     <option value="grid-3" <?php selected( $layout, 'grid-3' ); ?>><?php esc_html_e( 'Grid - 3 columns', 'wpc-grouped-product' ); ?></option>
                                     <option value="grid-4" <?php selected( $layout, 'grid-4' ); ?>><?php esc_html_e( 'Grid - 4 columns', 'wpc-grouped-product' ); ?></option>
+                                    <option value="carousel-2" <?php selected( $layout, 'carousel-2' ); ?>><?php esc_html_e( 'Carousel - 2 columns', 'wpc-grouped-product' ); ?></option>
+                                    <option value="carousel-3" <?php selected( $layout, 'carousel-3' ); ?>><?php esc_html_e( 'Carousel - 3 columns', 'wpc-grouped-product' ); ?></option>
+                                    <option value="carousel-4" <?php selected( $layout, 'carousel-4' ); ?>><?php esc_html_e( 'Carousel - 4 columns', 'wpc-grouped-product' ); ?></option>
                                 </select> </label>
                         </td>
                     </tr>
@@ -1952,7 +1985,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 					case 'none':
 						return '';
 					case 'from':
-						return WPCleverWoosg_Helper()::localization( 'from', esc_html__( 'From', 'wpc-grouped-product' ) ) . ' ' . wc_price( $product->get_price() );
+						return WPCleverWoosg_Helper()::localization( 'from', esc_html__( 'From', 'wpc-grouped-product' ) ) . ' ' . wc_price( $product->get_price() ) . $product->get_price_suffix();
 					case 'auto':
 						$including_main = get_post_meta( $product_id, 'woosg_including_main', true );
 						$min_or_max     = apply_filters( 'woosg_auto_price_min_or_max', 'min' );
@@ -2016,9 +2049,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 							}
 
 							if ( $sale_price && ( $sale_price < $regular_price ) ) {
-								return wc_format_sale_price( wc_price( $regular_price ), wc_price( $sale_price ) );
+								return wc_format_sale_price( wc_price( $regular_price ), wc_price( $sale_price ) ) . $product->get_price_suffix();
 							} else {
-								return wc_price( $regular_price );
+								return wc_price( $regular_price ) . $product->get_price_suffix();
 							}
 						}
 				}

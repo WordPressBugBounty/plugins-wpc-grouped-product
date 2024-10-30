@@ -480,10 +480,40 @@ function woosg_init($wrap) {
         trigger('woosg_check_ready', [true, is_selection, is_empty, $wrap]);
   }
 
+  woosg_carousel($wrap);
   woosg_calc_price($wrap);
   woosg_save_ids($wrap);
 
   jQuery(document).trigger('woosg_init', [$wrap]);
+}
+
+function woosg_carousel($wrap) {
+  if (!$wrap.hasClass('woosg-carousel-initialized')) {
+    let slides = 2;
+    let carousel = JSON.parse(woosg_vars.carousel_params);
+
+    if ($wrap.hasClass('woosg-wrap-layout-carousel-2') ||
+        $wrap.hasClass('woosg-wrap-layout-carousel-3') ||
+        $wrap.hasClass('woosg-wrap-layout-carousel-4')) {
+      if ($wrap.hasClass('woosg-wrap-layout-carousel-3')) {
+        slides = 3;
+      } else if ($wrap.hasClass('woosg-wrap-layout-carousel-4')) {
+        slides = 4;
+      }
+
+      if (slides > $wrap.find('.woosg-product').length) {
+        slides = $wrap.find('.woosg-product').length;
+      }
+
+      carousel.slidesToShow = slides;
+      carousel.slidesToScroll = slides;
+
+      $wrap.addClass('woosg-carousel-initialized').
+          find('.woosg-products').
+          slick(carousel);
+      jQuery(document).trigger('woosg_carousel', [$wrap]);
+    }
+  }
 }
 
 function woosg_calc_price($wrap) {

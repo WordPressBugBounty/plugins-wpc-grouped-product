@@ -429,6 +429,185 @@ body.woocommerce-no-js .woosg-wrap + form.cart {
     }
 }
 
+/* Carousel */
+
+.woosg-products[class*="woosg-products-layout-carousel"] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+    border: none;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-item-text {
+    width: 100%;
+    margin: 10px;
+    padding: 10px 0;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product {
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product:hover {
+    border-color: green;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product .woosg-title-inner {
+    font-weight: 700;
+}
+
+.woosg-products.woosg-products-layout-carousel-1 .woosg-product {
+    width: calc(100% - 20px);
+}
+
+.woosg-products.woosg-products-layout-carousel-3 .woosg-product {
+    width: calc(100% / 3 - 20px);
+}
+
+.woosg-products.woosg-products-layout-carousel-4 .woosg-product {
+    width: calc(25% - 20px);
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product > div {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 5px;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product > div:last-child {
+    margin-bottom: 0;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product select {
+    text-align: center;
+}
+
+.woosg-products[class*="woosg-products-layout-carousel"] .woosg-product .variations_form .variations .reset {
+    display: none;
+}
+
+.woosg-wrap[class*="woosg-wrap-layout-carousel"] {
+    display: none !important;
+}
+
+.woosg-wrap.woosg-carousel-initialized {
+    display: block !important;
+    position: relative;
+}
+
+.woosg-wrap.woosg-carousel-initialized .slick-slider .slick-list {
+    width: 100%;
+}
+
+.woosg-carousel-initialized .slick-dots {
+    display: block;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.woosg-carousel-initialized .slick-dots li {
+    display: inline-block;
+    margin: 0 5px;
+    font-size: 0;
+}
+
+.woosg-carousel-initialized .slick-dots li button {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    border: none;
+    background-color: rgba(0, 0, 0, .3);
+    outline: none;
+    overflow: hidden;
+}
+
+.woosg-carousel-initialized .slick-dots li.slick-active button {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.woosg-carousel-initialized .slick-arrow {
+    width: 44px;
+    height: 44px;
+    line-height: 42px;
+    text-align: center;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0;
+    color: #222;
+    background-color: #fff;
+    border-radius: 0;
+    border: 1px solid #ddd;
+    z-index: 8;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.woosg-carousel-initialized:hover .slick-arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+.woosg-carousel-initialized .slick-arrow:hover {
+    color: #fff;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.woosg-carousel-initialized .slick-arrow:before {
+    font-size: 24px;
+    line-height: 44px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.woosg-carousel-initialized .slick-arrow:focus {
+    outline: none;
+}
+
+.woosg-carousel-initialized .slick-arrow.slick-prev {
+    left: 10px;
+}
+
+.woosg-carousel-initialized .slick-arrow.slick-prev:before {
+    content: '‹';
+}
+
+.woosg-carousel-initialized .slick-arrow.slick-next {
+    right: 10px;
+}
+
+.woosg-carousel-initialized .slick-arrow.slick-next:before {
+    content: '›';
+}
+
 /* RTL */
 
 body.rtl .woosg-products .woosg-product .woosg-quantity.woosg-quantity-plus-minus .woosg-quantity-minus {
