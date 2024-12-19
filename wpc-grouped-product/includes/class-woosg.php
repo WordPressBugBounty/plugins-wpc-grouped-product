@@ -136,6 +136,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 			self::$types      = (array) apply_filters( 'woosg_product_types', self::$types );
 			self::$image_size = apply_filters( 'woosg_image_size', self::$image_size );
 
+			// load text-domain
+			load_plugin_textdomain( 'wpc-grouped-product', false, basename( WOOSG_DIR ) . '/languages/' );
+
 			// shortcode
 			add_shortcode( 'woosg', [ $this, 'shortcode' ] );
 			add_shortcode( 'woosg_form', [ $this, 'shortcode_form' ] );
