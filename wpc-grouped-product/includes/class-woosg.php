@@ -1818,6 +1818,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 											'classes'     => [
 												'input-text',
 												'woosg-qty',
+												'woosg_qty',
 												'qty',
 												'text'
 											],
@@ -1862,6 +1863,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <div class="woosg-atc">
 										<?php if ( $product->is_purchasable() && $product->is_in_stock() ) { ?>
                                             <form class="cart woosg-cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $global_product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
+												<?php do_action( 'woosg_before_item_atc', $product, $global_product, $order ); ?>
                                                 <input type="hidden" name="product_id" value="<?php echo absint( $item['id'] ); ?>"/>
 												<?php
 												if ( $product->is_type( 'variable' ) ) {
@@ -1897,6 +1899,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 													'classes'     => [
 														'input-text',
 														'woosg-qty',
+														'woosg_qty',
 														'qty',
 														'text'
 													]
@@ -1916,6 +1919,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <button type="submit" name="add-to-cart" value="<?php echo absint( $item['id'] ); ?>" class="single_add_to_cart_button woosg_single_add_to_cart_button button alt">
 													<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
                                                 </button>
+												<?php do_action( 'woosg_after_item_atc', $product, $global_product, $order ); ?>
                                             </form>
 										<?php } ?>
                                     </div>
@@ -1996,55 +2000,57 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 						if ( ( WPCleverWoosg_Helper()::get_setting( 'main_price', 'zero' ) === 'zero' ) || ( $including_main === 'no' ) || ( ( ! $including_main || ( $including_main === 'default' ) ) && ( WPCleverWoosg_Helper()::get_setting( 'including_main', 'no' ) !== 'yes' ) ) ) {
 							$regular_price = $sale_price = 0;
 						} else {
-							$regular_price = $product->get_regular_price();
-							$sale_price    = $product->get_price();
+							$regular_price = (float) $product->get_regular_price();
+							$sale_price    = (float) $product->get_price();
 						}
 
 						if ( $items = $product->get_items() ) {
 							foreach ( $items as $item ) {
 								if ( $item_product = wc_get_product( $item['id'] ) ) {
+									$item_qty = (float) $item['qty'] ?? 1;
+
 									if ( $item_product->is_type( 'variable' ) ) {
 										if ( $item_product_variation = self::get_product_default_variation( $item_product ) ) {
-											$regular_price += wc_get_price_to_display( $item_product_variation, [
+											$regular_price += (float) wc_get_price_to_display( $item_product_variation, [
 												'price' => $item_product_variation->get_regular_price(),
-												'qty'   => $item['qty']
+												'qty'   => $item_qty
 											] );
-											$sale_price    += wc_get_price_to_display( $item_product_variation, [
-												'qty' => $item['qty']
+											$sale_price    += (float) wc_get_price_to_display( $item_product_variation, [
+												'qty' => $item_qty
 											] );
 										} else {
-											$regular_price += wc_get_price_to_display( $item_product, [
+											$regular_price += (float) wc_get_price_to_display( $item_product, [
 												'price' => $item_product->get_variation_regular_price( $min_or_max ),
-												'qty'   => $item['qty']
+												'qty'   => $item_qty
 											] );
 
 											if ( $item_sale_price = $item_product->get_variation_sale_price( $min_or_max ) ) {
-												$sale_price += wc_get_price_to_display( $item_product, [
+												$sale_price += (float) wc_get_price_to_display( $item_product, [
 													'price' => $item_sale_price,
-													'qty'   => $item['qty']
+													'qty'   => $item_qty
 												] );
 											} else {
-												$sale_price += wc_get_price_to_display( $item_product, [
+												$sale_price += (float) wc_get_price_to_display( $item_product, [
 													'price' => $item_product->get_variation_regular_price( $min_or_max ),
-													'qty'   => $item['qty']
+													'qty'   => $item_qty
 												] );
 											}
 										}
 									} else {
-										$regular_price += wc_get_price_to_display( $item_product, [
+										$regular_price += (float) wc_get_price_to_display( $item_product, [
 											'price' => $item_product->get_regular_price(),
-											'qty'   => $item['qty']
+											'qty'   => $item_qty
 										] );
 
 										if ( $item_sale_price = $item_product->get_sale_price() ) {
-											$sale_price += wc_get_price_to_display( $item_product, [
+											$sale_price += (float) wc_get_price_to_display( $item_product, [
 												'price' => $item_sale_price,
-												'qty'   => $item['qty']
+												'qty'   => $item_qty
 											] );
 										} else {
-											$sale_price += wc_get_price_to_display( $item_product, [
+											$sale_price += (float) wc_get_price_to_display( $item_product, [
 												'price' => $item_product->get_regular_price(),
-												'qty'   => $item['qty']
+												'qty'   => $item_qty
 											] );
 										}
 									}

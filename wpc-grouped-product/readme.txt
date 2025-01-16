@@ -2,10 +2,9 @@
 Contributors: wpclever
 Donate link: https://wpclever.net
 Tags: woocommerce, wpc, group, grouped, kits
-Requires at least: 4.0
 Tested up to: 6.7
-Version: 5.1.3
-Stable tag: 5.1.3
+Version: 5.1.4
+Stable tag: 5.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -93,6 +92,9 @@ Please try other plugins from us:
 5. Almost done! click Save and see the result
 
 == Changelog ==
+
+= 5.1.4 =
+* Fixed: Minor CSS/JS issues
 
 = 5.1.3 =
 * Updated: Compatible with WP 6.7 & Woo 9.5
