@@ -298,11 +298,11 @@
     line-height: 1;
 }
 
-.woosg-products .woosg-product form.variations_form .variations .variation .select {
+.woosg-products .woosg-product form.variations_form .variations .variation .value {
     line-height: 1;
 }
 
-.woosg-products .woosg-product form.variations_form .variations .variation .select select {
+.woosg-products .woosg-product form.variations_form .variations .variation .value select {
     width: 100%;
     line-height: 1;
     padding: 0 16px 0 0;

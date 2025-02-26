@@ -177,9 +177,12 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                     <p>
                         Thank you for using our plugin! If you are satisfied, please reward it a full five-star
                         <span style="color:#ffb900">&#9733;&#9733;&#9733;&#9733;&#9733;</span> rating. <br/>
-                        <a href="<?php echo esc_url( WOOSG_REVIEWS ); ?>" target="_blank"><?php esc_html_e( 'Reviews', 'wpc-grouped-product' ); ?></a> |
-                        <a href="<?php echo esc_url( WOOSG_CHANGELOG ); ?>" target="_blank"><?php esc_html_e( 'Changelog', 'wpc-grouped-product' ); ?></a> |
-                        <a href="<?php echo esc_url( WOOSG_DISCUSSION ); ?>" target="_blank"><?php esc_html_e( 'Discussion', 'wpc-grouped-product' ); ?></a>
+                        <a href="<?php echo esc_url( WOOSG_REVIEWS ); ?>"
+                           target="_blank"><?php esc_html_e( 'Reviews', 'wpc-grouped-product' ); ?></a> |
+                        <a href="<?php echo esc_url( WOOSG_CHANGELOG ); ?>"
+                           target="_blank"><?php esc_html_e( 'Changelog', 'wpc-grouped-product' ); ?></a> |
+                        <a href="<?php echo esc_url( WOOSG_DISCUSSION ); ?>"
+                           target="_blank"><?php esc_html_e( 'Discussion', 'wpc-grouped-product' ); ?></a>
                     </p>
                 </div>
 				<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] ) { ?>
@@ -189,19 +192,25 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 				<?php } ?>
                 <div class="wpclever_settings_page_nav">
                     <h2 class="nav-tab-wrapper">
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=how' ) ); ?>" class="<?php echo esc_attr( $active_tab === 'how' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
+                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=how' ) ); ?>"
+                           class="<?php echo esc_attr( $active_tab === 'how' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
 							<?php esc_html_e( 'How to use?', 'wpc-grouped-product' ); ?>
                         </a>
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=settings' ) ); ?>" class="<?php echo esc_attr( $active_tab === 'settings' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
+                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=settings' ) ); ?>"
+                           class="<?php echo esc_attr( $active_tab === 'settings' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
 							<?php esc_html_e( 'Settings', 'wpc-grouped-product' ); ?>
                         </a>
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=localization' ) ); ?>" class="<?php echo esc_attr( $active_tab === 'localization' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
+                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=localization' ) ); ?>"
+                           class="<?php echo esc_attr( $active_tab === 'localization' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
 							<?php esc_html_e( 'Localization', 'wpc-grouped-product' ); ?>
                         </a>
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=tools' ) ); ?>" class="<?php echo esc_attr( $active_tab === 'tools' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
+                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=tools' ) ); ?>"
+                           class="<?php echo esc_attr( $active_tab === 'tools' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>">
 							<?php esc_html_e( 'Tools', 'wpc-grouped-product' ); ?>
                         </a>
-                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=premium' ) ); ?>" class="<?php echo esc_attr( $active_tab === 'premium' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>" style="color: #c9356e">
+                        <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=premium' ) ); ?>"
+                           class="<?php echo esc_attr( $active_tab === 'premium' ? 'nav-tab nav-tab-active' : 'nav-tab' ); ?>"
+                           style="color: #c9356e">
 							<?php esc_html_e( 'Premium Version', 'wpc-grouped-product' ); ?>
                         </a>
                         <a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-kit' ) ); ?>" class="nav-tab">
@@ -305,8 +314,11 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <option value="default" <?php selected( $variations_selector, 'default' ); ?>><?php esc_html_e( 'Default', 'wpc-grouped-product' ); ?></option>
                                                 <option value="woovr" <?php selected( $variations_selector, 'woovr' ); ?>><?php esc_html_e( 'Use WPC Variations Radio Buttons', 'wpc-grouped-product' ); ?></option>
                                             </select> </label>
-                                        <p class="description">If you choose "Use WPC Variations Radio Buttons", please install
-                                            <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=wpc-variations-radio-buttons&TB_iframe=true&width=800&height=550' ) ); ?>" class="thickbox" title="WPC Variations Radio Buttons">WPC Variations Radio Buttons</a> to make it work.
+                                        <p class="description">If you choose "Use WPC Variations Radio Buttons", please
+                                            install
+                                            <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=wpc-variations-radio-buttons&TB_iframe=true&width=800&height=550' ) ); ?>"
+                                               class="thickbox" title="WPC Variations Radio Buttons">WPC Variations
+                                                Radio Buttons</a> to make it work.
                                         </p>
                                     </td>
                                 </tr>
@@ -390,7 +402,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <option value="no" <?php selected( $link, 'no' ); ?>><?php esc_html_e( 'No', 'wpc-grouped-product' ); ?></option>
                                             </select> </label>
                                         <p class="description">If you choose "Open quick view popup", please install
-                                            <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=woo-smart-quick-view&TB_iframe=true&width=800&height=550' ) ); ?>" class="thickbox" title="WPC Smart Quick View">WPC Smart Quick View</a> to make it work.
+                                            <a href="<?php echo esc_url( admin_url( 'plugin-install.php?tab=plugin-information&plugin=woo-smart-quick-view&TB_iframe=true&width=800&height=550' ) ); ?>"
+                                               class="thickbox" title="WPC Smart Quick View">WPC Smart Quick View</a> to
+                                            make it work.
                                         </p>
                                     </td>
                                 </tr>
@@ -412,7 +426,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <option value="yes_custom" <?php selected( $change_price, 'yes_custom' ); ?>><?php esc_html_e( 'Yes, custom selector', 'wpc-grouped-product' ); ?></option>
                                                 <option value="no" <?php selected( $change_price, 'no' ); ?>><?php esc_html_e( 'No', 'wpc-grouped-product' ); ?></option>
                                             </select> </label> <label>
-                                            <input type="text" name="woosg_settings[change_price_custom]" value="<?php echo WPCleverWoosg_Helper()::get_setting( 'change_price_custom', '.summary > .price' ); ?>" placeholder=".summary > .price" class="woosg_change_price_custom"/>
+                                            <input type="text" name="woosg_settings[change_price_custom]"
+                                                   value="<?php echo WPCleverWoosg_Helper()::get_setting( 'change_price_custom', '.summary > .price' ); ?>"
+                                                   placeholder=".summary > .price" class="woosg_change_price_custom"/>
                                         </label>
                                         <p class="description"><?php esc_html_e( 'Change the main product price when choosing the variation of grouped product. It uses JavaScript to change product price so it is very dependent on theme’s HTML. If it cannot find and update the product price, please contact us and we can help you adjust the JS file.', 'wpc-grouped-product' ); ?></p>
                                     </td>
@@ -469,7 +485,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'From', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" name="woosg_localization[from]" class="regular-text" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'from' ) ); ?>" placeholder="<?php esc_attr_e( 'From', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" name="woosg_localization[from]" class="regular-text"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'from' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'From', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -477,7 +495,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Total', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" name="woosg_localization[total]" class="regular-text" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'total' ) ); ?>" placeholder="<?php esc_attr_e( 'Total:', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" name="woosg_localization[total]" class="regular-text"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'total' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'Total:', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -505,7 +525,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Tab name', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" name="woosg_localization[tab]" class="regular-text" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'tab' ) ); ?>" placeholder="<?php esc_attr_e( 'Grouped products', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" name="woosg_localization[tab]" class="regular-text"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'tab' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'Grouped products', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -513,8 +535,10 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Choose an attribute', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" class="regular-text" name="woosg_localization[choose]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'choose' ) ); ?>" placeholder="<?php /* translators: attribute name */
-											esc_attr_e( 'Choose %s', 'wpc-grouped-product' ); ?>"/> </label>
+                                            <input type="text" class="regular-text" name="woosg_localization[choose]"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'choose' ) ); ?>"
+                                                   placeholder="<?php /* translators: attribute name */
+											       esc_attr_e( 'Choose %s', 'wpc-grouped-product' ); ?>"/> </label>
                                         <span class="description"><?php /* translators: attribute name */
 											esc_html_e( 'Use %s to show the attribute name.', 'wpc-grouped-product' ); ?></span>
                                     </td>
@@ -523,7 +547,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Clear', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" class="regular-text" name="woosg_localization[clear]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'clear' ) ); ?>" placeholder="<?php esc_attr_e( 'Clear', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" class="regular-text" name="woosg_localization[clear]"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'clear' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'Clear', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -537,18 +563,27 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <td>
                                         <div style="margin-bottom: 5px">
                                             <label>
-                                                <input type="text" class="regular-text" name="woosg_localization[button_add]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_add' ) ); ?>" placeholder="<?php esc_attr_e( 'Add to cart', 'wpc-grouped-product' ); ?>"/>
+                                                <input type="text" class="regular-text"
+                                                       name="woosg_localization[button_add]"
+                                                       value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_add' ) ); ?>"
+                                                       placeholder="<?php esc_attr_e( 'Add to cart', 'wpc-grouped-product' ); ?>"/>
                                             </label>
                                         </div>
                                         <div style="margin-bottom: 5px">
                                             <label>
-                                                <input type="text" class="regular-text" name="woosg_localization[button_select]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_select' ) ); ?>" placeholder="<?php esc_attr_e( 'Select options', 'wpc-grouped-product' ); ?>"/>
+                                                <input type="text" class="regular-text"
+                                                       name="woosg_localization[button_select]"
+                                                       value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_select' ) ); ?>"
+                                                       placeholder="<?php esc_attr_e( 'Select options', 'wpc-grouped-product' ); ?>"/>
                                             </label>
                                             <span class="description"><?php esc_html_e( 'For purchasable grouped.', 'wpc-grouped-product' ); ?></span>
                                         </div>
                                         <div>
                                             <label>
-                                                <input type="text" class="regular-text" name="woosg_localization[button_read]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_read' ) ); ?>" placeholder="<?php esc_attr_e( 'Read more', 'wpc-grouped-product' ); ?>"/>
+                                                <input type="text" class="regular-text"
+                                                       name="woosg_localization[button_read]"
+                                                       value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_read' ) ); ?>"
+                                                       placeholder="<?php esc_attr_e( 'Read more', 'wpc-grouped-product' ); ?>"/>
                                             </label>
                                             <span class="description"><?php esc_html_e( 'For un-purchasable grouped.', 'wpc-grouped-product' ); ?></span>
                                         </div>
@@ -558,7 +593,10 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Single product page', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" class="regular-text" name="woosg_localization[button_single]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_single' ) ); ?>" placeholder="<?php esc_attr_e( 'Add to cart', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" class="regular-text"
+                                                   name="woosg_localization[button_single]"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'button_single' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'Add to cart', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -571,7 +609,10 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Require selection', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" class="large-text" name="woosg_localization[alert_selection]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'alert_selection' ) ); ?>" placeholder="<?php esc_attr_e( 'Please select a purchasable variation for [name] before adding this grouped product to the cart.', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" class="large-text"
+                                                   name="woosg_localization[alert_selection]"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'alert_selection' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'Please select a purchasable variation for [name] before adding this grouped product to the cart.', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -579,7 +620,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <th><?php esc_html_e( 'Enforce a selection', 'wpc-grouped-product' ); ?></th>
                                     <td>
                                         <label>
-                                            <input type="text" class="large-text" name="woosg_localization[alert_empty]" value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'alert_empty' ) ); ?>" placeholder="<?php esc_attr_e( 'Please choose at least one of the listed products before adding this grouped product to the cart.', 'wpc-grouped-product' ); ?>"/>
+                                            <input type="text" class="large-text" name="woosg_localization[alert_empty]"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::localization( 'alert_empty' ) ); ?>"
+                                                   placeholder="<?php esc_attr_e( 'Please choose at least one of the listed products before adding this grouped product to the cart.', 'wpc-grouped-product' ); ?>"/>
                                         </label>
                                     </td>
                                 </tr>
@@ -639,17 +682,19 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                         <span style="color: #2271b1; font-weight: 700"><?php esc_html_e( 'Converting...', 'wpc-grouped-product' ); ?></span>
                                         <p class="description"><?php esc_html_e( 'Please wait until it has finished!', 'wpc-grouped-product' ); ?></p>
                                         <script type="text/javascript">
-                                          (function($) {
-                                            $(function() {
-                                              setTimeout(function() {
-                                                window.location.href = '<?php echo esc_url_raw( admin_url( 'admin.php?page=wpclever-woosg&tab=tools&act=convert&num=' . $num . '&paged=' . ( $paged + 1 ) ) ); ?>';
-                                              }, 1000);
-                                            });
-                                          })(jQuery);
+                                            (function ($) {
+                                                $(function () {
+                                                    setTimeout(function () {
+                                                        window.location.href = '<?php echo esc_url_raw( admin_url( 'admin.php?page=wpclever-woosg&tab=tools&act=convert&num=' . $num . '&paged=' . ( $paged + 1 ) ) ); ?>';
+                                                    }, 1000);
+                                                });
+                                            })(jQuery);
                                         </script><?php } else { ?>
                                         <span style="color: #2271b1; font-weight: 700"><?php esc_html_e( 'Finished!', 'wpc-grouped-product' ); ?></span><?php }
 									} else { ?>
-                                        <a class="button btn" href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=tools&act=convert' ) ); ?>" onclick="return confirm('Are you sure? This action cannot be undone.');"><?php esc_html_e( 'Convert', 'wpc-grouped-product' ); ?></a>
+                                        <a class="button btn"
+                                           href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=tools&act=convert' ) ); ?>"
+                                           onclick="return confirm('Are you sure? This action cannot be undone.');"><?php esc_html_e( 'Convert', 'wpc-grouped-product' ); ?></a>
 									<?php }
 
 									echo '</p>'; ?>
@@ -660,7 +705,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                         <div class="wpclever_settings_page_content_text">
                             <p>
                                 Get the Premium Version just $29!
-                                <a href="https://wpclever.net/downloads/grouped-product?utm_source=pro&utm_medium=woosg&utm_campaign=wporg" target="_blank">https://wpclever.net/downloads/grouped-product</a>
+                                <a href="https://wpclever.net/downloads/grouped-product?utm_source=pro&utm_medium=woosg&utm_campaign=wporg"
+                                   target="_blank">https://wpclever.net/downloads/grouped-product</a>
                             </p>
                             <p><strong>Extra features for Premium Version:</strong></p>
                             <ul style="margin-bottom: 0">
@@ -678,12 +724,15 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                     <div class="wpclever_settings_page_suggestion_content">
                         <div>
                             To display custom engaging real-time messages on any wished positions, please install
-                            <a href="https://wordpress.org/plugins/wpc-smart-messages/" target="_blank">WPC Smart Messages</a> plugin. It's free!
+                            <a href="https://wordpress.org/plugins/wpc-smart-messages/" target="_blank">WPC Smart
+                                Messages</a> plugin. It's free!
                         </div>
                         <div>
                             Wanna save your precious time working on variations? Try our brand-new free plugin
-                            <a href="https://wordpress.org/plugins/wpc-variation-bulk-editor/" target="_blank">WPC Variation Bulk Editor</a> and
-                            <a href="https://wordpress.org/plugins/wpc-variation-duplicator/" target="_blank">WPC Variation Duplicator</a>.
+                            <a href="https://wordpress.org/plugins/wpc-variation-bulk-editor/" target="_blank">WPC
+                                Variation Bulk Editor</a> and
+                            <a href="https://wordpress.org/plugins/wpc-variation-duplicator/" target="_blank">WPC
+                                Variation Duplicator</a>.
                         </div>
                     </div>
                 </div>
@@ -702,7 +751,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 <th><?php esc_html_e( 'Search limit', 'wpc-grouped-product' ); ?></th>
                 <td>
                     <label>
-                        <input name="woosg_settings[search_limit]" type="number" class="woosg_search_limit" value="<?php echo esc_attr( WPCleverWoosg_Helper()::get_setting( 'search_limit', 10 ) ); ?>"/>
+                        <input name="woosg_settings[search_limit]" type="number" class="woosg_search_limit"
+                               value="<?php echo esc_attr( WPCleverWoosg_Helper()::get_setting( 'search_limit', 10 ) ); ?>"/>
                     </label>
                 </td>
             </tr>
@@ -1246,7 +1296,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 			wp_enqueue_editor();
 			?>
             <div id='woosg_settings' class='panel woocommerce_options_panel woosg_table'>
-                <div id="woosg_search_settings" style="display: none" data-title="<?php esc_html_e( 'Search settings', 'wpc-grouped-product' ); ?>">
+                <div id="woosg_search_settings" style="display: none"
+                     data-title="<?php esc_html_e( 'Search settings', 'wpc-grouped-product' ); ?>">
                     <table>
 						<?php self::search_settings(); ?>
                         <tr>
@@ -1261,12 +1312,16 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 </div>
                 <table>
                     <tr>
-                        <th><?php esc_html_e( 'Search', 'wpc-grouped-product' ); ?> (<a href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=settings#search' ) ); ?>" id="woosg_search_settings_btn"><?php esc_html_e( 'settings', 'wpc-grouped-product' ); ?></a>)
+                        <th><?php esc_html_e( 'Search', 'wpc-grouped-product' ); ?> (<a
+                                    href="<?php echo esc_url( admin_url( 'admin.php?page=wpclever-woosg&tab=settings#search' ) ); ?>"
+                                    id="woosg_search_settings_btn"><?php esc_html_e( 'settings', 'wpc-grouped-product' ); ?></a>)
                         </th>
                         <td>
                             <div class="w100">
-                                <span class="loading" id="woosg_loading" style="display: none;"><?php esc_html_e( 'searching...', 'wpc-grouped-product' ); ?></span>
-                                <label for="woosg_keyword"></label><input type="search" id="woosg_keyword" placeholder="<?php esc_html_e( 'Type any keyword to search', 'wpc-grouped-product' ); ?>"/>
+                                <span class="loading" id="woosg_loading"
+                                      style="display: none;"><?php esc_html_e( 'searching...', 'wpc-grouped-product' ); ?></span>
+                                <label for="woosg_keyword"></label><input type="search" id="woosg_keyword"
+                                                                          placeholder="<?php esc_html_e( 'Type any keyword to search', 'wpc-grouped-product' ); ?>"/>
                                 <div id="woosg_results" class="woosg_results" style="display: none;"></div>
                             </div>
                         </td>
@@ -1305,7 +1360,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                     <tr class="woosg_tr_space">
                         <th></th>
                         <td>
-                            <a href="https://wpclever.net/downloads/grouped-product?utm_source=pro&utm_medium=woosg&utm_campaign=wporg" target="_blank" class="woosg_add_txt button" onclick="return confirm('This feature only available in Premium Version!\nBuy it now? Just $29')">
+                            <a href="https://wpclever.net/downloads/grouped-product?utm_source=pro&utm_medium=woosg&utm_campaign=wporg"
+                               target="_blank" class="woosg_add_txt button"
+                               onclick="return confirm('This feature only available in Premium Version!\nBuy it now? Just $29')">
 								<?php esc_html_e( '+ Add heading/paragraph', 'wpc-grouped-product' ); ?>
                             </a>
                         </td>
@@ -1314,7 +1371,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                         <th><?php echo esc_html__( 'Regular price', 'wpc-grouped-product' ) . ' (' . esc_html( get_woocommerce_currency_symbol() ) . ')'; ?></th>
                         <td>
                             <span id="woosg_regular_price"></span>
-                            <span class="woocommerce-help-tip" data-tip="<?php esc_attr_e( 'This price was used for displaying only. Always put a price in the General tab to display the Add to Cart button.', 'wpc-grouped-product' ); ?>"></span>
+                            <span class="woocommerce-help-tip"
+                                  data-tip="<?php esc_attr_e( 'This price was used for displaying only. Always put a price in the General tab to display the Add to Cart button.', 'wpc-grouped-product' ); ?>"></span>
                         </td>
                     </tr>
                     <tr class="woosg_tr_space">
@@ -1339,7 +1397,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                     <option value="yes" <?php selected( $including_main, 'yes' ); ?>><?php esc_html_e( 'Yes', 'wpc-grouped-product' ); ?></option>
                                     <option value="no" <?php selected( $including_main, 'no' ); ?>><?php esc_html_e( 'No', 'wpc-grouped-product' ); ?></option>
                                 </select> </label>
-                            <span class="woocommerce-help-tip" data-tip="<?php esc_attr_e( 'Include main product on the cart. Helpful when you need to add some extra options for the main product, e.g WPC Frequently Bought Together, WPC Force Sells.', 'wpc-grouped-product' ); ?>"></span>
+                            <span class="woocommerce-help-tip"
+                                  data-tip="<?php esc_attr_e( 'Include main product on the cart. Helpful when you need to add some extra options for the main product, e.g WPC Frequently Bought Together, WPC Force Sells.', 'wpc-grouped-product' ); ?>"></span>
                         </td>
                     </tr>
                     <tr class="woosg_tr_space">
@@ -1356,7 +1415,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                         <th><?php esc_html_e( 'Custom display price', 'wpc-grouped-product' ); ?></th>
                         <td>
                             <label>
-                                <input type="text" name="woosg_custom_price" value="<?php echo esc_attr( get_post_meta( $product_id, 'woosg_custom_price', true ) ); ?>"/>
+                                <input type="text" name="woosg_custom_price"
+                                       value="<?php echo esc_attr( get_post_meta( $product_id, 'woosg_custom_price', true ) ); ?>"/>
                             </label> E.g: <code>From $10 to $100</code>
                         </td>
                     </tr>
@@ -1381,7 +1441,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                         <td>
                             <div class="w100">
                                 <label>
-                                    <textarea name="woosg_before_text"><?php echo esc_textarea( get_post_meta( $product_id, 'woosg_before_text', true ) ); ?></textarea>
+                                    <textarea
+                                            name="woosg_before_text"><?php echo esc_textarea( get_post_meta( $product_id, 'woosg_before_text', true ) ); ?></textarea>
                                 </label>
                             </div>
                         </td>
@@ -1391,7 +1452,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                         <td>
                             <div class="w100">
                                 <label>
-                                    <textarea name="woosg_after_text"><?php echo esc_textarea( get_post_meta( $product_id, 'woosg_after_text', true ) ); ?></textarea>
+                                    <textarea
+                                            name="woosg_after_text"><?php echo esc_textarea( get_post_meta( $product_id, 'woosg_after_text', true ) ); ?></textarea>
                                 </label>
                             </div>
                         </td>
@@ -1621,7 +1683,11 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 					$main_regular_price = wc_get_price_to_display( $product, [ 'price' => $product->get_regular_price() ] );
 				}
 				?>
-                <div class="<?php echo esc_attr( $products_class ); ?>" data-variables="<?php echo esc_attr( $product->has_variables() ? 'yes' : 'no' ); ?>" data-price="<?php echo esc_attr( $main_price ); ?>" data-regular-price="<?php echo esc_attr( $main_regular_price ); ?>" data-price-suffix="<?php echo esc_attr( htmlentities( $product->get_price_suffix() ) ); ?>">
+                <div class="<?php echo esc_attr( $products_class ); ?>"
+                     data-variables="<?php echo esc_attr( $product->has_variables() ? 'yes' : 'no' ); ?>"
+                     data-price="<?php echo esc_attr( $main_price ); ?>"
+                     data-regular-price="<?php echo esc_attr( $main_regular_price ); ?>"
+                     data-price-suffix="<?php echo esc_attr( htmlentities( $product->get_price_suffix() ) ); ?>">
 					<?php
 					do_action( 'woosg_before_items', $product );
 
@@ -1685,7 +1751,14 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 								$item_wpcpq = [];
 							}
 							?>
-                            <div class="<?php echo esc_attr( apply_filters( 'woosg_item_class', $item_class, $product, $global_product ) ); ?>" data-name="<?php echo esc_attr( $product_name ); ?>" data-id="<?php echo esc_attr( $item_id ); ?>" data-price="<?php echo esc_attr( $item_price ); ?>" data-regular-price="<?php echo esc_attr( $item_regular_price ); ?>" data-qty="<?php echo esc_attr( $item_qty ); ?>" data-order="<?php echo esc_attr( $order ); ?>" data-wpcpq="<?php echo esc_attr( json_encode( $item_wpcpq ) ); ?>">
+                            <div class="<?php echo esc_attr( apply_filters( 'woosg_item_class', $item_class, $product, $global_product ) ); ?>"
+                                 data-name="<?php echo esc_attr( $product_name ); ?>"
+                                 data-id="<?php echo esc_attr( $item_id ); ?>"
+                                 data-price="<?php echo esc_attr( $item_price ); ?>"
+                                 data-regular-price="<?php echo esc_attr( $item_regular_price ); ?>"
+                                 data-qty="<?php echo esc_attr( $item_qty ); ?>"
+                                 data-order="<?php echo esc_attr( $order ); ?>"
+                                 data-wpcpq="<?php echo esc_attr( json_encode( $item_wpcpq ) ); ?>">
 
 								<?php
 								do_action( 'woosg_before_item', $product, $global_product, $order );
@@ -1786,11 +1859,15 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                         </div>
 									<?php }
 
+									do_action( 'woosg_after_item_price', $product, $global_product, $order );
+
 									if ( $show_description ) {
 										echo '<div class="woosg-description">' . wp_kses_post( apply_filters( 'woosg_item_description', $product->is_type( 'variation' ) ? $product->get_description() : $product->get_short_description(), $product ) ) . '</div>';
 									}
 
-									echo '<div class="woosg-availability">' . wp_kses_post( wc_get_stock_html( $product ) ) . '</div>';
+									do_action( 'woosg_after_item_description', $product, $global_product, $order );
+
+									echo '<div class="woosg-availability">' . wp_kses_post( apply_filters( 'woosg_product_availability', wc_get_stock_html( $product ), $product ) ) . '</div>';
 									?>
                                 </div><!-- /woosg-title -->
 
@@ -1825,7 +1902,11 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 											'input_name'  => 'woosg_qty_' . $order
 										];
 
-										woocommerce_quantity_input( $qty_args, $product );
+										if ( apply_filters( 'woosg_use_woocommerce_quantity_input', true ) ) {
+											woocommerce_quantity_input( $qty_args, $product );
+										} else {
+											echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="woosg_qty_' . $order . '" />', $qty_args, $product );
+										}
 
 										if ( $show_plus_minus ) {
 											echo '<span class="woosg-quantity-plus">+</span>';
@@ -1862,9 +1943,12 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 									?>
                                     <div class="woosg-atc">
 										<?php if ( $product->is_purchasable() && $product->is_in_stock() ) { ?>
-                                            <form class="cart woosg-cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $global_product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
+                                            <form class="cart woosg-cart"
+                                                  action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $global_product->get_permalink() ) ); ?>"
+                                                  method="post" enctype='multipart/form-data'>
 												<?php do_action( 'woosg_before_item_atc', $product, $global_product, $order ); ?>
-                                                <input type="hidden" name="product_id" value="<?php echo absint( $item['id'] ); ?>"/>
+                                                <input type="hidden" name="product_id"
+                                                       value="<?php echo absint( $item['id'] ); ?>"/>
 												<?php
 												if ( $product->is_type( 'variable' ) ) {
 													echo '<input type="hidden" name="variation_id" value="0"/>';
@@ -1902,10 +1986,15 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 														'woosg_qty',
 														'qty',
 														'text'
-													]
+													],
+													'input_name'  => 'woosg_qty_' . $order
 												];
 
-												woocommerce_quantity_input( $qty_args, $product );
+												if ( apply_filters( 'woosg_use_woocommerce_quantity_input', true ) ) {
+													woocommerce_quantity_input( $qty_args, $product );
+												} else {
+													echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="woosg_qty_' . $order . '" />', $qty_args, $product );
+												}
 
 												if ( $show_plus_minus ) {
 													echo '<span class="woosg-quantity-plus">+</span>';
@@ -1916,7 +2005,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 
 												echo '</div><!-- /woosg-quantity -->';
 												?>
-                                                <button type="submit" name="add-to-cart" value="<?php echo absint( $item['id'] ); ?>" class="single_add_to_cart_button woosg_single_add_to_cart_button button alt">
+                                                <button type="submit" name="add-to-cart"
+                                                        value="<?php echo absint( $item['id'] ); ?>"
+                                                        class="single_add_to_cart_button woosg_single_add_to_cart_button button alt">
 													<?php echo esc_html( $product->single_add_to_cart_text() ); ?>
                                                 </button>
 												<?php do_action( 'woosg_after_item_atc', $product, $global_product, $order ); ?>
