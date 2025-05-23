@@ -1890,7 +1890,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 											'woosg_qty'   => [
 												'input_value' => $item_qty,
 												'min_value'   => $min,
-												'max_value'   => $max
+												'max_value'   => $max,
+												'order'       => $order
 											],
 											'classes'     => [
 												'input-text',
@@ -1898,14 +1899,13 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 												'woosg_qty',
 												'qty',
 												'text'
-											],
-											'input_name'  => 'woosg_qty_' . $order
+											]
 										];
 
 										if ( apply_filters( 'woosg_use_woocommerce_quantity_input', true ) ) {
 											woocommerce_quantity_input( $qty_args, $product );
 										} else {
-											echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="woosg_qty_' . $order . '" />', $qty_args, $product );
+											echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="quantity"/>', $qty_args, $product );
 										}
 
 										if ( $show_plus_minus ) {
@@ -1978,7 +1978,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 													'woosg_qty'   => [
 														'input_value' => $item_qty,
 														'min_value'   => $min,
-														'max_value'   => $max
+														'max_value'   => $max,
+														'order'       => $order
 													],
 													'classes'     => [
 														'input-text',
@@ -1986,14 +1987,13 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 														'woosg_qty',
 														'qty',
 														'text'
-													],
-													'input_name'  => 'woosg_qty_' . $order
+													]
 												];
 
 												if ( apply_filters( 'woosg_use_woocommerce_quantity_input', true ) ) {
 													woocommerce_quantity_input( $qty_args, $product );
 												} else {
-													echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="woosg_qty_' . $order . '" />', $qty_args, $product );
+													echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="quantity"/>', $qty_args, $product );
 												}
 
 												if ( $show_plus_minus ) {

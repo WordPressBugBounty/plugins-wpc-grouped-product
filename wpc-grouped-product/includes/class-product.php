@@ -61,6 +61,10 @@ if ( ! class_exists( 'WC_Product_Woosg' ) && class_exists( 'WC_Product' ) ) {
 			return parent::get_price( $context );
 		}
 
+		public function is_purchasable() {
+			return apply_filters( 'woosg_is_purchasable', $this->exists() && ( 'publish' === $this->get_status() || current_user_can( 'edit_post', $this->get_id() ) ) && '' !== $this->get_price(), $this );
+		}
+
 		// extra functions
 
 		public function has_variables() {
