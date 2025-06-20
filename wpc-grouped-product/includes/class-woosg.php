@@ -172,19 +172,26 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 			$active_tab = sanitize_key( $_GET['tab'] ?? 'settings' );
 			?>
             <div class="wpclever_settings_page wrap">
-                <h1 class="wpclever_settings_page_title"><?php echo esc_html__( 'WPC Grouped Product', 'wpc-grouped-product' ) . ' ' . esc_html( WOOSG_VERSION ) . ' ' . ( defined( 'WOOSG_PREMIUM' ) ? '<span class="premium" style="display: none">' . esc_html__( 'Premium', 'wpc-grouped-product' ) . '</span>' : '' ); ?></h1>
-                <div class="wpclever_settings_page_desc about-text">
-                    <p>
-                        Thank you for using our plugin! If you are satisfied, please reward it a full five-star
-                        <span style="color:#ffb900">&#9733;&#9733;&#9733;&#9733;&#9733;</span> rating. <br/>
-                        <a href="<?php echo esc_url( WOOSG_REVIEWS ); ?>"
-                           target="_blank"><?php esc_html_e( 'Reviews', 'wpc-grouped-product' ); ?></a> |
-                        <a href="<?php echo esc_url( WOOSG_CHANGELOG ); ?>"
-                           target="_blank"><?php esc_html_e( 'Changelog', 'wpc-grouped-product' ); ?></a> |
-                        <a href="<?php echo esc_url( WOOSG_DISCUSSION ); ?>"
-                           target="_blank"><?php esc_html_e( 'Discussion', 'wpc-grouped-product' ); ?></a>
-                    </p>
+                <div class="wpclever_settings_page_header">
+                    <a class="wpclever_settings_page_header_logo" href="https://wpclever.net/"
+                       target="_blank" title="Visit wpclever.net"></a>
+                    <div class="wpclever_settings_page_header_text">
+                        <div class="wpclever_settings_page_title"><?php echo esc_html__( 'WPC Grouped Product', 'wpc-grouped-product' ) . ' ' . esc_html( WOOSG_VERSION ) . ' ' . ( defined( 'WOOSG_PREMIUM' ) ? '<span class="premium" style="display: none">' . esc_html__( 'Premium', 'wpc-grouped-product' ) . '</span>' : '' ); ?></div>
+                        <div class="wpclever_settings_page_desc about-text">
+                            <p>
+                                Thank you for using our plugin! If you are satisfied, please reward it a full five-star
+                                <span style="color:#ffb900">&#9733;&#9733;&#9733;&#9733;&#9733;</span> rating. <br/>
+                                <a href="<?php echo esc_url( WOOSG_REVIEWS ); ?>"
+                                   target="_blank"><?php esc_html_e( 'Reviews', 'wpc-grouped-product' ); ?></a> |
+                                <a href="<?php echo esc_url( WOOSG_CHANGELOG ); ?>"
+                                   target="_blank"><?php esc_html_e( 'Changelog', 'wpc-grouped-product' ); ?></a> |
+                                <a href="<?php echo esc_url( WOOSG_DISCUSSION ); ?>"
+                                   target="_blank"><?php esc_html_e( 'Discussion', 'wpc-grouped-product' ); ?></a>
+                            </p>
+                        </div>
+                    </div>
                 </div>
+                <h2></h2>
 				<?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] ) { ?>
                     <div class="notice notice-success is-dismissible">
                         <p><?php esc_html_e( 'Settings updated.', 'wpc-grouped-product' ); ?></p>
@@ -288,7 +295,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <option value="above" <?php selected( $position, 'above' ); ?>><?php esc_html_e( 'Above add to cart button', 'wpc-grouped-product' ); ?></option>
                                                 <option value="below" <?php selected( $position, 'below' ); ?>><?php esc_html_e( 'Under add to cart button', 'wpc-grouped-product' ); ?></option>
                                                 <option value="tab" <?php selected( $position, 'tab' ); ?>><?php esc_html_e( 'In a new tab', 'wpc-grouped-product' ); ?></option>
-                                                <option value="no" <?php selected( $position, 'no' ); ?>><?php esc_html_e( 'No (hide it)', 'wpc-grouped-product' ); ?></option>
+                                                <option value="no" <?php selected( $position, 'no' ); ?>><?php esc_html_e( 'None (hide it)', 'wpc-grouped-product' ); ?></option>
                                             </select> </label>
                                         <p class="description"><?php esc_html_e( 'Choose the position to show the grouped product list. You also can use the shortcode [woosg] to show the list where you want.', 'wpc-grouped-product' ); ?></p>
                                     </td>
@@ -1477,7 +1484,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 				$product_class .= ' disabled';
 			}
 
-			if ( class_exists( 'WPCleverWoopq' ) && ( get_option( '_woopq_decimal', 'no' ) === 'yes' ) ) {
+			if ( class_exists( 'WPCleverWoopq' ) && ( WPCleverWoopq::get_setting( 'decimal', 'no' ) === 'yes' ) ) {
 				$step = '0.000001';
 			} else {
 				$step = 1;
