@@ -3,7 +3,7 @@
 Plugin Name: WPC Grouped Product for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Grouped Product helps you made up standalone products that are presented as a group.
-Version: 5.1.8
+Version: 5.1.9
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: wpc-grouped-product
@@ -19,7 +19,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSG_VERSION' ) && define( 'WOOSG_VERSION', '5.1.8' );
+! defined( 'WOOSG_VERSION' ) && define( 'WOOSG_VERSION', '5.1.9' );
 ! defined( 'WOOSG_LITE' ) && define( 'WOOSG_LITE', __FILE__ );
 ! defined( 'WOOSG_FILE' ) && define( 'WOOSG_FILE', __FILE__ );
 ! defined( 'WOOSG_URI' ) && define( 'WOOSG_URI', plugin_dir_url( __FILE__ ) );
