@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPC Grouped Product for WooCommerce 5.1.9\n"
+"Project-Id-Version: WPC Grouped Product for WooCommerce 5.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpc-grouped-product\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-01T08:44:56+00:00\n"
+"POT-Creation-Date: 2025-07-10T11:43:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wpc-grouped-product\n"
@@ -415,7 +415,7 @@ msgstr ""
 
 #: includes/class-woosg.php:492
 #: includes/class-woosg.php:497
-#: includes/class-woosg.php:2093
+#: includes/class-woosg.php:2094
 msgid "From"
 msgstr ""
 
@@ -674,62 +674,62 @@ msgid "Default quantity"
 msgstr ""
 
 #. translators: count
-#: includes/class-woosg.php:2214
+#: includes/class-woosg.php:2215
 msgid "Grouped (%d)"
 msgstr ""
 
-#: includes/class-woosg.php:2292
+#: includes/class-woosg.php:2293
 msgid "Before wrapper"
 msgstr ""
 
-#: includes/class-woosg.php:2293
+#: includes/class-woosg.php:2294
 msgid "After wrapper"
 msgstr ""
 
-#: includes/class-woosg.php:2294
+#: includes/class-woosg.php:2295
 msgid "Before products"
 msgstr ""
 
-#: includes/class-woosg.php:2295
+#: includes/class-woosg.php:2296
 msgid "After products"
 msgstr ""
 
-#: includes/class-woosg.php:2296
+#: includes/class-woosg.php:2297
 msgid "Before sub-product"
 msgstr ""
 
-#: includes/class-woosg.php:2297
+#: includes/class-woosg.php:2298
 msgid "After sub-product"
 msgstr ""
 
-#: includes/class-woosg.php:2298
+#: includes/class-woosg.php:2299
 msgid "Before sub-product thumbnail"
 msgstr ""
 
-#: includes/class-woosg.php:2299
+#: includes/class-woosg.php:2300
 msgid "After sub-product thumbnail"
 msgstr ""
 
-#: includes/class-woosg.php:2300
+#: includes/class-woosg.php:2301
 msgid "Before sub-product name"
 msgstr ""
 
-#: includes/class-woosg.php:2301
+#: includes/class-woosg.php:2302
 msgid "After sub-product name"
 msgstr ""
 
-#: includes/class-woosg.php:2302
+#: includes/class-woosg.php:2303
 msgid "Before sub-product price"
 msgstr ""
 
-#: includes/class-woosg.php:2303
+#: includes/class-woosg.php:2304
 msgid "After sub-product price"
 msgstr ""
 
-#: includes/class-woosg.php:2304
+#: includes/class-woosg.php:2305
 msgid "Before sub-product quantity"
 msgstr ""
 
-#: includes/class-woosg.php:2305
+#: includes/class-woosg.php:2306
 msgid "After sub-product quantity"
 msgstr ""

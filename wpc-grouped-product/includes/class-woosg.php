@@ -1723,7 +1723,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 							$item_link_class    = apply_filters( 'woosg_item_link_class', 'woosg-product-link' . ( WPCleverWoosg_Helper()::get_setting( 'link', 'yes' ) === 'yes_popup' ? ' woosq-link' : '' ), $product );
 							$item_id            = $product->is_type( 'variable' ) ? 0 : $item['id'];
 
-							if ( $product->is_purchasable() && $product->is_in_stock() ) {
+							if ( $product->is_type( 'variable' ) || ( $product->is_purchasable() && $product->is_in_stock() ) ) {
 								$min = apply_filters( 'woosg_quantity_input_min', 0, $product );
 								$max = apply_filters( 'woosg_quantity_input_max', $product->get_max_purchase_quantity(), $product );
 
@@ -1790,7 +1790,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 										do_action( 'woosg_before_item_thumb', $product, $global_product, $order );
 
 										if ( $link ) {
-											echo '<a class="' . esc_attr( $item_link_class ) . '" data-id="' . esc_attr( $item['id'] ) . '" data-context="woosg" href="' . esc_url( get_permalink( $item['id'] ) ) . '" ' . ( WPCleverWoosg_Helper()::get_setting( 'link', 'yes' ) === 'yes_blank' ? 'target="_blank"' : '' ) . '>';
+											echo '<a class="' . esc_attr( $item_link_class ) . '" data-id="' . esc_attr( $item['id'] ) . '" data-context="woosg" href="' . esc_url( apply_filters( 'woosg_item_product_link', get_permalink( $item['id'] ), $item ) ) . '" ' . ( WPCleverWoosg_Helper()::get_setting( 'link', 'yes' ) === 'yes_blank' ? 'target="_blank"' : '' ) . '>';
 										} ?>
                                         <div class="woosg-thumb-ori">
 											<?php echo wp_kses( apply_filters( 'woosg_item_thumbnail', $product->get_image( self::$image_size ), $product, $global_product, $order ), [
@@ -1826,7 +1826,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 									$item_name = '';
 
 									if ( $link ) {
-										$item_name .= '<a class="' . esc_attr( $item_link_class ) . '" data-id="' . esc_attr( $item['id'] ) . '" data-context="woosg" href="' . esc_url( get_permalink( $item['id'] ) ) . '" ' . ( WPCleverWoosg_Helper()::get_setting( 'link', 'yes' ) === 'yes_blank' ? 'target="_blank"' : '' ) . '>';
+										$item_name .= '<a class="' . esc_attr( $item_link_class ) . '" data-id="' . esc_attr( $item['id'] ) . '" data-context="woosg" href="' . esc_url( apply_filters( 'woosg_item_product_link', get_permalink( $item['id'] ), $item ) ) . '" ' . ( WPCleverWoosg_Helper()::get_setting( 'link', 'yes' ) === 'yes_blank' ? 'target="_blank"' : '' ) . '>';
 									}
 
 									if ( $product->is_in_stock() ) {
@@ -2030,6 +2030,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 							<?php
 						} elseif ( ! empty( $item['text'] ) ) {
 							$item_class = 'woosg-item-text';
+							$item_text  = apply_filters( 'woosg_item_text', wp_kses_post( $item['text'] ), $item, $global_product, $order );
 
 							if ( ! empty( $item['type'] ) ) {
 								$item_class .= ' woosg-item-text-type-' . $item['type'];
@@ -2038,9 +2039,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 							echo '<div class="' . esc_attr( apply_filters( 'woosg_item_text_class', $item_class, $item, $global_product, $order ) ) . '">';
 
 							if ( empty( $item['type'] ) || ( $item['type'] === 'none' ) ) {
-								echo wp_kses_post( $item['text'] );
+								echo $item_text;
 							} else {
-								echo wp_kses_post( '<' . $item['type'] . '>' . $item['text'] . '</' . $item['type'] . '>' );
+								echo '<' . $item['type'] . '>' . $item_text . '</' . $item['type'] . '>';
 							}
 
 							echo '</div>';
