@@ -3,18 +3,18 @@ Contributors: wpclever
 Donate link: https://wpclever.net
 Tags: woocommerce, wpc, group, grouped, kits
 Tested up to: 6.8
-Version: 5.2.1
-Stable tag: 5.2.1
+Version: 5.2.2
+Stable tag: 5.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-WPC Grouped Product helps you made up standalone products that are presented as a group.
+WPC Grouped Product helps you make up standalone products that are presented as a group.
 
 == Description ==
 
 **WPC Grouped Product for WooCommerce** offers a way of bringing different products together into a unifying group to form a new product type. Users can freely form grouped products from individual items and set any predefined quantity for each of them. This is such a powerful complement product bundling method that helps sellers in giving suggestions on related items to buy, and at the same time enhances the cross-selling and revenues for their WooCommerce online shops.
 
-WPC Grouped Product is a convenient way of giving zero or low price gifts, giveaways or free entailed service of other products as well. Check this out now, you’ll be stunned by its possibilities.
+WPC Grouped Product is a convenient way of giving zero or low-price gifts, giveaways, or free entailed service of other products as well. Check this out now, you’ll be stunned by its possibilities.
 
 = Live demo =
 
@@ -46,32 +46,32 @@ Visit our [live demo](https://demo.wpclever.net/woosg/?utm_source=content&utm_me
 
 = Powerful Product Grouping for WooCommerce Stores =
 
-A grouped product is a very special type of product, whose grouped items are, in fact, remain as individual products with no available promoting or discounting method. To offer discounts for a grouped product, users will have to create coupons or vouchers then provide these to their customers to enter the code in the checkout step. WPC Grouped Products is a very intuitive plugin, you’ll know how to use it right without the need to read through any detailed documentation.
+A grouped product is an exceptional type of product, whose grouped items are, in fact, remained as individual products with no available promoting or discounting method. To offer discounts for a grouped product, users will have to create coupons or vouchers then provide these to their customers to enter the code in the checkout step. WPC Grouped Products is a very intuitive plugin, you’ll know how to use it right without the need to read through any detailed documentation.
 
 By default, WooCommerce only lets you create grouped products from simple ones, but WPC Grouped Product (Premium) takes it a bit further to let users add variable products or a specific variation to the list. This is proudly one of the most powerful features in our plugin, which makes any professional site builders or store owners feel excited enough to try it out immediately on their store.
 
-Items in a grouped product list might share something in common, like they are all “bestsellers”, “pick of the day”, “new arrivals”, “favorite series”, etc. Grouped items are in a group, but they are treated as separate items, so the quantity of each can be adjusted freely: customers can buy all, some, or none of them based on their needs. Grouped items can be considered as optional ones, no default or required choices. By nature, a grouped product is merely a listing of individual items put together as a suggestion for buyers to consider buying more at once.
+Items in a grouped product list might share something in common, like they are all “bestsellers,” “pick of the day,” “new arrivals,” “favorite series,” etc. Grouped items are in a group, but they are treated as separate items, so the quantity of each can be adjusted freely: customers can buy all, some, or none of them based on their needs. Grouped items can be considered as optional ones, no default or required choices. By nature, a grouped product is merely a listing of individual items put together as a suggestion for buyers to consider buying more at once.
 
 = Useful Cases in Practice of WPC Grouped Products =
 
-Below are some common cases where users can utilize the WPC Grouped Product at its best:
+Below are some common cases where users can use the WPC Grouped Product at its best:
 
 <ul>
 <li>Sellers want to keep different versions/choices of a product as separate simple products to easily manage the stock instead of setting them as variations of a variable product.</li>
 <li>Products to be grouped together are distinct but still related or have something in common, like a series of textbooks and workbooks for all subjects in grade 1 (math, literature, etc.)</li>
-<li>Some products belong to quite a good number of categories at the same time, so they can be added to a grouped product to make different listings with freedom of choice for the buyers. For example, a CD can belong to categories and subcategories like “Best-sellers”, “Great Hits of the 90s”, “Best Songs of Michael Jackson”, etc.</li>
+<li>Some products belong to quite a good number of categories at the same time, so they can be added to a grouped product to make different listings with freedom of choice for the buyers. For example, a CD can belong to categorize and subcategories like “Best-sellers”, “Great Hits of the 90s”, “Best Songs of Michael Jackson”, etc.</li>
 <li>Predefined quantity is a mere suggestion of how many buyers should consider. It’s not obligatory to buy the whole deal with that combination of items. But after customers change the quantity and add it to the cart, the quantity display in the listing will return back to the default.</li>
 <li>Store owners can sell an item and offer another with a very low price or a freebie as incentives to encourage customers to buy.</li>
 <li>Any product that entails some kind of warranty, support or maintenance services can introduce the grouped products at a very low price to persuade buyers to spend a bit more just to increase the benefits they can get.</li>
 <li>Offer a buy 1 and get 1 for free or zero price main product with Bought Together of Force Sells deals. Buy 1, get 1 for free can be configured by adding 1 grouped product at normal price, 1 bought together (disabled custom quantity) or force sell product with new price at 0% or $0 to the deal.</li>
-<li>Give away 2 pieces of postcards for every order during Christmas (set 2 postcards at $0 or 0% as force sells items), they must be added to the cart for customers to purchase and checkout. The quantity of force sell items will always be synced with the main product’s quantity. That’s said if the quantity of the main product is 2, buyers can get 4 pieces of force sells postcards in the above example.</li>
+<li>Give away 2 pieces of postcards for every order during Christmas (set 2 postcards at $0 or 0% as force sells items); they must be added to the cart for customers to purchase and checkout. The quantity of force selling items will always be synced with the main product’s quantity. That’s said, if the quantity of the main product is 2, buyers can get 4 pieces of force sells postcards in the above example.</li>
 </ul>
 
 = Zero Price Main Product =
 
-**Free Gift & Giveaway Items**: You might have grown very familiar with the situation when customers can get a free item as an added gift to another product. But with WPC Grouped Product, the case is different. Studies found, customers mostly make decisions based on their calculation of spending they can save and benefits they can get from the deal. By offering the main product at zero price, sellers make the deal more appealing to the buyers. And their customers, in fact, would think they can save more with this, so they’re more willing to say yes.
+**Free Gift & Giveaway Items**: You might have grown very familiar with the situation when customers can get a free item as an added gift to another product. But with WPC Grouped Product, the case is different. Studies found customers mostly make decisions based on their calculation of spending they can save and benefits they can get from the deal. By offering the main product at zero prices, sellers make the deal more appealing to the buyers. And their customers, in fact, would think they can save more with this, so they’re more willing to say yes.
 
-**Flexible Combination with WPC Frequently Bought Together or WPC Force Sells**: First of all, in order to combine with these plugins, from the admin dashboard, please navigate to WPClever >> Grouped Product >> find “Include main product” option then choose “Yes”. The main product with the price as $0 will be added alongside the Bought Together or Force Sell items to the cart.
+**Flexible Combination with WPC Frequently Bought Together or WPC Force Sells**: First, to combine with these plugins, from the admin dashboard, please navigate to WPClever >> Grouped Product >> find the “Include main product” option, then choose “Yes”. The main product with the price as $0 will be added alongside the Bought Together or Force Sell items to the cart.
 
 = Not what you needed? =
 
@@ -87,11 +87,15 @@ Please try other plugins from us:
 
 1. Please make sure that you installed WooCommerce
 2. Go to plugins in your dashboard and select "Add New"
-3. Search for "WPC Grouped Product", Install & Activate it
-4. Now when you create/edit a product you can choose product type is "Smart Grouped", then add products as you want
-5. Almost done! click Save and see the result
+3. Search for "WPC Grouped Product," Install & Activate it
+4. Now when you create/edit a product, you can choose a product type is "Smart Grouped," then add products as you want
+5. Almost done! Click Save and see the result
 
 == Changelog ==
+
+= 5.2.2 =
+* Updated: Optimized the code
+* Updated: Compatible with WP 6.8 & Woo 10.2
 
 = 5.2.1 =
 * Updated: Optimized the code
