@@ -69,7 +69,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
             add_action( 'woocommerce_product_data_panels', [ $this, 'product_data_panels' ] );
             add_action( 'woocommerce_process_product_meta_woosg', [ $this, 'process_product_meta_woosg' ] );
 
-            // Price html
+            // Price HTML
             add_filter( 'woocommerce_get_price_html', [ $this, 'get_price_html' ], 99, 2 );
 
             // Product class
@@ -78,7 +78,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
             // Price class
             add_filter( 'woocommerce_product_price_class', [ $this, 'product_price_class' ] );
 
-            // Add to cart form & button
+            // Add to a cart form & button
             add_action( 'woocommerce_woosg_add_to_cart', [ $this, 'add_to_cart_form' ] );
             add_action( 'woocommerce_before_add_to_cart_button', [ $this, 'add_to_cart_button' ] );
 
@@ -154,10 +154,16 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 
         function register_settings() {
             // settings
-            register_setting( 'woosg_settings', 'woosg_settings' );
+            register_setting( 'woosg_settings', 'woosg_settings', [
+                    'type'              => 'array',
+                    'sanitize_callback' => [ 'WPCleverWoosg_Helper', 'sanitize_array' ],
+            ] );
 
             // localization
-            register_setting( 'woosg_localization', 'woosg_localization' );
+            register_setting( 'woosg_localization', 'woosg_localization', [
+                    'type'              => 'array',
+                    'sanitize_callback' => [ 'WPCleverWoosg_Helper', 'sanitize_array' ],
+            ] );
         }
 
         function admin_menu() {
@@ -473,6 +479,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                 <tr class="submit">
                                     <th colspan="2">
                                         <?php settings_fields( 'woosg_settings' ); ?><?php submit_button(); ?>
+                                        <a style="display: none;" class="wpclever_export" data-key="woosg_settings"
+                                           data-name="settings"
+                                           href="#"><?php esc_html_e( 'import / export', 'wpc-grouped-product' ); ?></a>
                                     </th>
                                 </tr>
                             </table>
@@ -636,6 +645,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                 <tr class="submit">
                                     <th colspan="2">
                                         <?php settings_fields( 'woosg_localization' ); ?><?php submit_button(); ?>
+                                        <a style="display: none;" class="wpclever_export" data-key="woosg_localization"
+                                           data-name="settings"
+                                           href="#"><?php esc_html_e( 'import / export', 'wpc-grouped-product' ); ?></a>
                                     </th>
                                 </tr>
                             </table>
@@ -1041,8 +1053,6 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                         $item_key  = WC()->cart->add_to_cart( $item_id, $item_qty * $quantity, $item_variation_id, $item_variation, $item_data );
 
                         if ( $item_key ) {
-                            WC()->cart->cart_contents[ $item_key ]['woosg_parent_id']   = $product_id;
-                            WC()->cart->cart_contents[ $item_key ]['woosg_parent_key']  = $cart_item_key;
                             WC()->cart->cart_contents[ $cart_item_key ]['woosg_keys'][] = $item_key;
                             do_action( 'woosg_add_to_cart_item', $item_key, $item, $cart_item_key, $product_id );
                         }
@@ -1050,10 +1060,24 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 }
 
                 // remove grouped
-                $including_main = get_post_meta( $product_id, 'woosg_including_main', true );
+                $including_main      = get_post_meta( $product_id, 'woosg_including_main', true );
+                $including_main_once = apply_filters( 'woosg_including_main_once', false );
 
                 if ( ( ( ! $including_main || ( $including_main === 'default' ) ) && ( WPCleverWoosg_Helper()::get_setting( 'including_main', 'no' ) !== 'yes' ) ) || ( $including_main === 'no' ) ) {
                     WC()->cart->remove_cart_item( $cart_item_key );
+                } else {
+                    if ( $including_main_once ) {
+                        foreach ( WC()->cart->cart_contents as $_cart_item_key => $_cart_item ) {
+                            if ( isset( $_cart_item['woosg_keys'] ) && ( $_cart_item_key !== $cart_item_key ) && ( $_cart_item['product_id'] === $product_id ) ) {
+                                $keys  = WC()->cart->cart_contents[ $cart_item_key ]['woosg_keys'];
+                                $_keys = WC()->cart->cart_contents[ $_cart_item_key ]['woosg_keys'];
+
+                                WC()->cart->cart_contents[ $_cart_item_key ]['woosg_keys'] = array_merge( $keys, $_keys );
+                                //WC()->cart->set_quantity( $_cart_item_key, WC()->cart->cart_contents[ $_cart_item_key ]['quantity'] + WC()->cart->cart_contents[ $cart_item_key ]['quantity'] );
+                                WC()->cart->remove_cart_item( $cart_item_key );
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -1065,11 +1089,13 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 }
 
                 if ( ! empty( $cart_item['woosg_keys'] ) ) {
+                    // check if it has children, if no, remove the parent
                     $has_key = false;
 
                     foreach ( $cart_item['woosg_keys'] as $key ) {
                         if ( isset( $cart_contents[ $key ] ) ) {
                             $has_key = true;
+                            break;
                         }
                     }
 

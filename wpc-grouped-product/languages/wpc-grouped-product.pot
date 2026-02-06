@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: WPC Grouped Product for WooCommerce 5.2.2\n"
+"Project-Id-Version: WPC Grouped Product for WooCommerce 5.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wpc-grouped-product\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-26T07:05:41+00:00\n"
+"POT-Creation-Date: 2025-12-23T03:35:43+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: wpc-grouped-product\n"
 
 #. Plugin Name of the plugin
@@ -41,695 +41,704 @@ msgstr ""
 
 #: includes/class-product.php:35
 #: includes/class-product.php:47
-#: includes/class-woosg.php:576
-#: includes/class-woosg.php:606
-#: includes/class-woosg.php:862
+#: includes/class-woosg.php:585
+#: includes/class-woosg.php:615
+#: includes/class-woosg.php:874
 msgid "Add to cart"
 msgstr ""
 
 #: includes/class-product.php:37
-#: includes/class-woosg.php:584
-#: includes/class-woosg.php:863
+#: includes/class-woosg.php:593
+#: includes/class-woosg.php:875
 msgid "Select options"
 msgstr ""
 
 #: includes/class-product.php:40
-#: includes/class-woosg.php:593
+#: includes/class-woosg.php:602
 msgid "Read more"
 msgstr ""
 
-#: includes/class-woosg.php:164
-#: includes/class-woosg.php:179
+#: includes/class-woosg.php:170
+#: includes/class-woosg.php:185
 msgid "WPC Grouped Product"
 msgstr ""
 
-#: includes/class-woosg.php:164
+#: includes/class-woosg.php:170
 msgid "Grouped Product"
 msgstr ""
 
-#: includes/class-woosg.php:179
+#: includes/class-woosg.php:185
 msgid "Premium"
 msgstr ""
 
-#: includes/class-woosg.php:185
+#: includes/class-woosg.php:191
 msgid "Reviews"
 msgstr ""
 
-#: includes/class-woosg.php:187
+#: includes/class-woosg.php:193
 msgid "Changelog"
 msgstr ""
 
-#: includes/class-woosg.php:189
+#: includes/class-woosg.php:195
 msgid "Discussion"
 msgstr ""
 
-#: includes/class-woosg.php:197
+#: includes/class-woosg.php:203
 msgid "Settings updated."
 msgstr ""
 
-#: includes/class-woosg.php:204
+#: includes/class-woosg.php:210
 msgid "How to use?"
 msgstr ""
 
-#: includes/class-woosg.php:208
-#: includes/class-woosg.php:922
+#: includes/class-woosg.php:214
+#: includes/class-woosg.php:934
 msgid "Settings"
 msgstr ""
 
-#: includes/class-woosg.php:212
+#: includes/class-woosg.php:218
 msgid "Localization"
 msgstr ""
 
-#: includes/class-woosg.php:216
+#: includes/class-woosg.php:222
 msgid "Tools"
 msgstr ""
 
-#: includes/class-woosg.php:221
-#: includes/class-woosg.php:923
+#: includes/class-woosg.php:227
+#: includes/class-woosg.php:935
 msgid "Premium Version"
 msgstr ""
 
-#: includes/class-woosg.php:224
+#: includes/class-woosg.php:230
 msgid "Essential Kit"
 msgstr ""
 
-#: includes/class-woosg.php:232
+#: includes/class-woosg.php:238
 msgid "When creating the product, please choose product data is \"Smart grouped\" then you can see the search field to start search and add products."
 msgstr ""
 
-#: includes/class-woosg.php:261
-#: includes/class-woosg.php:486
+#: includes/class-woosg.php:267
+#: includes/class-woosg.php:495
 msgid "General"
 msgstr ""
 
-#: includes/class-woosg.php:265
+#: includes/class-woosg.php:271
 msgid "Price format"
 msgstr ""
 
-#: includes/class-woosg.php:268
-#: includes/class-woosg.php:463
+#: includes/class-woosg.php:274
+#: includes/class-woosg.php:469
 msgid "Normal price"
 msgstr ""
 
-#: includes/class-woosg.php:269
+#: includes/class-woosg.php:275
 msgid "From price"
 msgstr ""
 
-#: includes/class-woosg.php:270
+#: includes/class-woosg.php:276
 msgid "Auto calculated price"
 msgstr ""
 
-#: includes/class-woosg.php:271
+#: includes/class-woosg.php:277
 msgid "None"
 msgstr ""
 
-#: includes/class-woosg.php:273
+#: includes/class-woosg.php:279
 msgid "Choose the price format for grouped product on the shop/archive page. Using \"Auto calculated price\" can cause your site slow down."
 msgstr ""
 
-#: includes/class-woosg.php:277
+#: includes/class-woosg.php:283
 msgid "Purchasable on archive"
 msgstr ""
 
-#: includes/class-woosg.php:280
-#: includes/class-woosg.php:336
-#: includes/class-woosg.php:346
-#: includes/class-woosg.php:355
-#: includes/class-woosg.php:364
-#: includes/class-woosg.php:383
-#: includes/class-woosg.php:422
-#: includes/class-woosg.php:432
-#: includes/class-woosg.php:452
-#: includes/class-woosg.php:770
-#: includes/class-woosg.php:779
-#: includes/class-woosg.php:789
-#: includes/class-woosg.php:799
-#: includes/class-woosg.php:809
-#: includes/class-woosg.php:1404
+#: includes/class-woosg.php:286
+#: includes/class-woosg.php:342
+#: includes/class-woosg.php:352
+#: includes/class-woosg.php:361
+#: includes/class-woosg.php:370
+#: includes/class-woosg.php:389
+#: includes/class-woosg.php:428
+#: includes/class-woosg.php:438
+#: includes/class-woosg.php:458
+#: includes/class-woosg.php:782
+#: includes/class-woosg.php:791
+#: includes/class-woosg.php:801
+#: includes/class-woosg.php:811
+#: includes/class-woosg.php:821
+#: includes/class-woosg.php:1430
 msgid "Yes"
 msgstr ""
 
-#: includes/class-woosg.php:281
-#: includes/class-woosg.php:337
-#: includes/class-woosg.php:347
-#: includes/class-woosg.php:356
-#: includes/class-woosg.php:365
-#: includes/class-woosg.php:384
-#: includes/class-woosg.php:398
-#: includes/class-woosg.php:409
-#: includes/class-woosg.php:423
-#: includes/class-woosg.php:434
-#: includes/class-woosg.php:453
-#: includes/class-woosg.php:771
-#: includes/class-woosg.php:780
-#: includes/class-woosg.php:790
-#: includes/class-woosg.php:800
-#: includes/class-woosg.php:810
-#: includes/class-woosg.php:1395
-#: includes/class-woosg.php:1405
+#: includes/class-woosg.php:287
+#: includes/class-woosg.php:343
+#: includes/class-woosg.php:353
+#: includes/class-woosg.php:362
+#: includes/class-woosg.php:371
+#: includes/class-woosg.php:390
+#: includes/class-woosg.php:404
+#: includes/class-woosg.php:415
+#: includes/class-woosg.php:429
+#: includes/class-woosg.php:440
+#: includes/class-woosg.php:459
+#: includes/class-woosg.php:783
+#: includes/class-woosg.php:792
+#: includes/class-woosg.php:802
+#: includes/class-woosg.php:812
+#: includes/class-woosg.php:822
+#: includes/class-woosg.php:1421
+#: includes/class-woosg.php:1431
 msgid "No"
 msgstr ""
 
-#: includes/class-woosg.php:283
+#: includes/class-woosg.php:289
 msgid "Allow buyers to add a group to the cart on the products archive page. All default sub-products will be added to the cart."
 msgstr ""
 
-#: includes/class-woosg.php:288
-#: includes/class-woosg.php:537
-#: includes/class-woosg.php:1265
+#: includes/class-woosg.php:294
+#: includes/class-woosg.php:546
+#: includes/class-woosg.php:1291
 msgid "Grouped products"
 msgstr ""
 
-#: includes/class-woosg.php:292
+#: includes/class-woosg.php:298
 msgid "Position"
 msgstr ""
 
-#: includes/class-woosg.php:295
+#: includes/class-woosg.php:301
 msgid "Above add to cart button"
 msgstr ""
 
-#: includes/class-woosg.php:296
+#: includes/class-woosg.php:302
 msgid "Under add to cart button"
 msgstr ""
 
-#: includes/class-woosg.php:297
+#: includes/class-woosg.php:303
 msgid "In a new tab"
 msgstr ""
 
-#: includes/class-woosg.php:298
+#: includes/class-woosg.php:304
 msgid "None (hide it)"
 msgstr ""
 
-#: includes/class-woosg.php:300
+#: includes/class-woosg.php:306
 msgid "Choose the position to show the grouped product list. You also can use the shortcode [woosg] to show the list where you want."
 msgstr ""
 
-#: includes/class-woosg.php:304
-#: includes/class-woosg.php:1431
+#: includes/class-woosg.php:310
+#: includes/class-woosg.php:1457
 msgid "Layout"
 msgstr ""
 
-#: includes/class-woosg.php:307
-#: includes/class-woosg.php:1436
+#: includes/class-woosg.php:313
+#: includes/class-woosg.php:1462
 msgid "List"
 msgstr ""
 
-#: includes/class-woosg.php:308
-#: includes/class-woosg.php:1437
+#: includes/class-woosg.php:314
+#: includes/class-woosg.php:1463
 msgid "Grid - 2 columns"
 msgstr ""
 
-#: includes/class-woosg.php:309
-#: includes/class-woosg.php:1438
+#: includes/class-woosg.php:315
+#: includes/class-woosg.php:1464
 msgid "Grid - 3 columns"
 msgstr ""
 
-#: includes/class-woosg.php:310
-#: includes/class-woosg.php:1439
+#: includes/class-woosg.php:316
+#: includes/class-woosg.php:1465
 msgid "Grid - 4 columns"
 msgstr ""
 
-#: includes/class-woosg.php:311
-#: includes/class-woosg.php:1440
+#: includes/class-woosg.php:317
+#: includes/class-woosg.php:1466
 msgid "Carousel - 2 columns"
 msgstr ""
 
-#: includes/class-woosg.php:312
-#: includes/class-woosg.php:1441
+#: includes/class-woosg.php:318
+#: includes/class-woosg.php:1467
 msgid "Carousel - 3 columns"
 msgstr ""
 
-#: includes/class-woosg.php:313
-#: includes/class-woosg.php:1442
+#: includes/class-woosg.php:319
+#: includes/class-woosg.php:1468
 msgid "Carousel - 4 columns"
 msgstr ""
 
-#: includes/class-woosg.php:318
+#: includes/class-woosg.php:324
 msgid "Variations selector"
 msgstr ""
 
-#: includes/class-woosg.php:321
-#: includes/class-woosg.php:1391
-#: includes/class-woosg.php:1403
-#: includes/class-woosg.php:1415
+#: includes/class-woosg.php:327
+#: includes/class-woosg.php:1417
+#: includes/class-woosg.php:1429
+#: includes/class-woosg.php:1441
 msgid "Default"
 msgstr ""
 
-#: includes/class-woosg.php:322
+#: includes/class-woosg.php:328
 msgid "Use WPC Variations Radio Buttons"
 msgstr ""
 
-#: includes/class-woosg.php:333
+#: includes/class-woosg.php:339
 msgid "Exclude unpurchasable"
 msgstr ""
 
-#: includes/class-woosg.php:339
+#: includes/class-woosg.php:345
 msgid "Exclude unpurchasable products from the list."
 msgstr ""
 
-#: includes/class-woosg.php:343
+#: includes/class-woosg.php:349
 msgid "Show thumbnail"
 msgstr ""
 
-#: includes/class-woosg.php:352
+#: includes/class-woosg.php:358
 msgid "Show short description"
 msgstr ""
 
-#: includes/class-woosg.php:361
+#: includes/class-woosg.php:367
 msgid "Show price"
 msgstr ""
 
-#: includes/class-woosg.php:370
-#: includes/class-woosg.php:1412
+#: includes/class-woosg.php:376
+#: includes/class-woosg.php:1438
 msgid "Product selector"
 msgstr ""
 
-#: includes/class-woosg.php:373
-#: includes/class-woosg.php:1416
+#: includes/class-woosg.php:379
+#: includes/class-woosg.php:1442
 msgid "Quantity"
 msgstr ""
 
-#: includes/class-woosg.php:374
-#: includes/class-woosg.php:1417
+#: includes/class-woosg.php:380
+#: includes/class-woosg.php:1443
 msgid "Checkbox"
 msgstr ""
 
-#: includes/class-woosg.php:376
+#: includes/class-woosg.php:382
 msgid "You still can choose the selector for each grouped product in the product settings."
 msgstr ""
 
-#: includes/class-woosg.php:380
+#: includes/class-woosg.php:386
 msgid "Show plus/minus button"
 msgstr ""
 
-#: includes/class-woosg.php:386
+#: includes/class-woosg.php:392
 msgid "Show the plus/minus button to increase/decrease the quantity."
 msgstr ""
 
-#: includes/class-woosg.php:391
-#: includes/class-woosg.php:1387
+#: includes/class-woosg.php:397
+#: includes/class-woosg.php:1413
 msgid "Show add to cart button"
 msgstr ""
 
-#: includes/class-woosg.php:395
-#: includes/class-woosg.php:1392
+#: includes/class-woosg.php:401
+#: includes/class-woosg.php:1418
 msgid "Yes, for each sub-product"
 msgstr ""
 
-#: includes/class-woosg.php:396
-#: includes/class-woosg.php:1393
+#: includes/class-woosg.php:402
+#: includes/class-woosg.php:1419
 msgid "Yes, for the whole group"
 msgstr ""
 
-#: includes/class-woosg.php:397
-#: includes/class-woosg.php:1394
+#: includes/class-woosg.php:403
+#: includes/class-woosg.php:1420
 msgid "Yes, for both the whole group and each sub-product"
 msgstr ""
 
-#: includes/class-woosg.php:403
+#: includes/class-woosg.php:409
 msgid "Link to individual product"
 msgstr ""
 
-#: includes/class-woosg.php:406
+#: includes/class-woosg.php:412
 msgid "Yes, open in the same tab"
 msgstr ""
 
-#: includes/class-woosg.php:407
+#: includes/class-woosg.php:413
 msgid "Yes, open in the new tab"
 msgstr ""
 
-#: includes/class-woosg.php:408
+#: includes/class-woosg.php:414
 msgid "Yes, open quick view popup"
 msgstr ""
 
-#: includes/class-woosg.php:419
+#: includes/class-woosg.php:425
 msgid "Change image"
 msgstr ""
 
-#: includes/class-woosg.php:425
+#: includes/class-woosg.php:431
 msgid "Change the main product image when choosing the variation of grouped product."
 msgstr ""
 
-#: includes/class-woosg.php:429
+#: includes/class-woosg.php:435
 msgid "Change price"
 msgstr ""
 
-#: includes/class-woosg.php:433
+#: includes/class-woosg.php:439
 msgid "Yes, custom selector"
 msgstr ""
 
-#: includes/class-woosg.php:440
+#: includes/class-woosg.php:446
 msgid "Change the main product price when choosing the variation of grouped product. It uses JavaScript to change product price so it is very dependent on theme’s HTML. If it cannot find and update the product price, please contact us and we can help you adjust the JS file."
 msgstr ""
 
-#: includes/class-woosg.php:445
+#: includes/class-woosg.php:451
 msgid "Cart & Checkout"
 msgstr ""
 
-#: includes/class-woosg.php:449
-#: includes/class-woosg.php:1400
+#: includes/class-woosg.php:455
+#: includes/class-woosg.php:1426
 msgid "Include main product"
 msgstr ""
 
-#: includes/class-woosg.php:455
-#: includes/class-woosg.php:1408
+#: includes/class-woosg.php:461
+#: includes/class-woosg.php:1434
 msgid "Include main product on the cart. Helpful when you need to add some extra options for the main product, e.g WPC Frequently Bought Together, WPC Force Sells."
 msgstr ""
 
-#: includes/class-woosg.php:459
+#: includes/class-woosg.php:465
 msgid "Main product price"
 msgstr ""
 
-#: includes/class-woosg.php:462
+#: includes/class-woosg.php:468
 msgid "Zero price"
 msgstr ""
 
-#: includes/class-woosg.php:469
-#: includes/class-woosg.php:1322
+#: includes/class-woosg.php:475
+#: includes/class-woosg.php:1348
 msgid "Search"
 msgstr ""
 
-#: includes/class-woosg.php:488
+#: includes/class-woosg.php:484
+#: includes/class-woosg.php:650
+msgid "import / export"
+msgstr ""
+
+#: includes/class-woosg.php:497
 msgid "Leave blank to use the default text and its equivalent translation in multiple languages."
 msgstr ""
 
-#: includes/class-woosg.php:492
-#: includes/class-woosg.php:497
-#: includes/class-woosg.php:2094
+#: includes/class-woosg.php:501
+#: includes/class-woosg.php:506
+#: includes/class-woosg.php:2120
 msgid "From"
 msgstr ""
 
-#: includes/class-woosg.php:502
+#: includes/class-woosg.php:511
 msgid "Total"
 msgstr ""
 
-#: includes/class-woosg.php:507
-#: includes/class-woosg.php:861
+#: includes/class-woosg.php:516
+#: includes/class-woosg.php:873
 msgid "Total:"
 msgstr ""
 
-#: includes/class-woosg.php:512
+#: includes/class-woosg.php:521
 msgid "Default above text"
 msgstr ""
 
-#: includes/class-woosg.php:518
+#: includes/class-woosg.php:527
 msgid "The default text above products list. You can overwrite it in product settings."
 msgstr ""
 
-#: includes/class-woosg.php:522
+#: includes/class-woosg.php:531
 msgid "Default under text"
 msgstr ""
 
-#: includes/class-woosg.php:528
+#: includes/class-woosg.php:537
 msgid "The default text under products list. You can overwrite it in product settings."
 msgstr ""
 
-#: includes/class-woosg.php:532
+#: includes/class-woosg.php:541
 msgid "Tab name"
 msgstr ""
 
-#: includes/class-woosg.php:542
+#: includes/class-woosg.php:551
 msgid "Choose an attribute"
 msgstr ""
 
 #. translators: attribute name
-#: includes/class-woosg.php:548
+#: includes/class-woosg.php:557
+#, php-format
 msgid "Choose %s"
 msgstr ""
 
 #. translators: attribute name
-#: includes/class-woosg.php:550
+#: includes/class-woosg.php:559
+#, php-format
 msgid "Use %s to show the attribute name."
 msgstr ""
 
-#: includes/class-woosg.php:554
-#: includes/class-woosg.php:559
+#: includes/class-woosg.php:563
+#: includes/class-woosg.php:568
 msgid "Clear"
 msgstr ""
 
-#: includes/class-woosg.php:565
+#: includes/class-woosg.php:574
 msgid "\"Add to cart\" button labels"
 msgstr ""
 
-#: includes/class-woosg.php:569
+#: includes/class-woosg.php:578
 msgid "Shop/archive page"
 msgstr ""
 
-#: includes/class-woosg.php:586
+#: includes/class-woosg.php:595
 msgid "For purchasable grouped."
 msgstr ""
 
-#: includes/class-woosg.php:595
+#: includes/class-woosg.php:604
 msgid "For un-purchasable grouped."
 msgstr ""
 
-#: includes/class-woosg.php:600
+#: includes/class-woosg.php:609
 msgid "Single product page"
 msgstr ""
 
-#: includes/class-woosg.php:612
+#: includes/class-woosg.php:621
 msgid "Alert"
 msgstr ""
 
-#: includes/class-woosg.php:616
+#: includes/class-woosg.php:625
 msgid "Require selection"
 msgstr ""
 
-#: includes/class-woosg.php:622
-#: includes/class-woosg.php:864
+#: includes/class-woosg.php:631
+#: includes/class-woosg.php:876
 msgid "Please select a purchasable variation for [name] before adding this grouped product to the cart."
 msgstr ""
 
-#: includes/class-woosg.php:627
+#: includes/class-woosg.php:636
 msgid "Enforce a selection"
 msgstr ""
 
-#: includes/class-woosg.php:632
-#: includes/class-woosg.php:865
+#: includes/class-woosg.php:641
+#: includes/class-woosg.php:877
 msgid "Please choose at least one of the listed products before adding this grouped product to the cart."
 msgstr ""
 
-#: includes/class-woosg.php:646
-#: includes/class-woosg.php:704
+#: includes/class-woosg.php:658
+#: includes/class-woosg.php:716
 msgid "Convert"
 msgstr ""
 
-#: includes/class-woosg.php:649
+#: includes/class-woosg.php:661
 msgid "Press the Convert button to convert all native grouped products to smart grouped."
 msgstr ""
 
-#: includes/class-woosg.php:689
+#: includes/class-woosg.php:701
 msgid "Converting..."
 msgstr ""
 
-#: includes/class-woosg.php:690
+#: includes/class-woosg.php:702
 msgid "Please wait until it has finished!"
 msgstr ""
 
-#: includes/class-woosg.php:700
+#: includes/class-woosg.php:712
 msgid "Finished!"
 msgstr ""
 
-#: includes/class-woosg.php:758
+#: includes/class-woosg.php:770
 msgid "Search limit"
 msgstr ""
 
-#: includes/class-woosg.php:767
+#: includes/class-woosg.php:779
 msgid "Search by SKU"
 msgstr ""
 
-#: includes/class-woosg.php:776
+#: includes/class-woosg.php:788
 msgid "Search by ID"
 msgstr ""
 
-#: includes/class-woosg.php:782
+#: includes/class-woosg.php:794
 msgid "Search by ID when entering the numeric only."
 msgstr ""
 
-#: includes/class-woosg.php:786
+#: includes/class-woosg.php:798
 msgid "Search exact"
 msgstr ""
 
-#: includes/class-woosg.php:792
+#: includes/class-woosg.php:804
 msgid "Match whole product title or content?"
 msgstr ""
 
-#: includes/class-woosg.php:796
+#: includes/class-woosg.php:808
 msgid "Search sentence"
 msgstr ""
 
-#: includes/class-woosg.php:802
+#: includes/class-woosg.php:814
 msgid "Do a phrase search?"
 msgstr ""
 
-#: includes/class-woosg.php:806
+#: includes/class-woosg.php:818
 msgid "Accept same products"
 msgstr ""
 
-#: includes/class-woosg.php:812
+#: includes/class-woosg.php:824
 msgid "If yes, a product can be added many times."
 msgstr ""
 
-#: includes/class-woosg.php:816
+#: includes/class-woosg.php:828
 msgid "Product types"
 msgstr ""
 
-#: includes/class-woosg.php:821
+#: includes/class-woosg.php:833
 msgid "All"
 msgstr ""
 
-#: includes/class-woosg.php:828
+#: includes/class-woosg.php:840
 msgid " → Variation"
 msgstr ""
 
-#: includes/class-woosg.php:939
+#: includes/class-woosg.php:951
 msgid "Community support"
 msgstr ""
 
-#: includes/class-woosg.php:963
-#: includes/class-woosg.php:982
+#: includes/class-woosg.php:975
+#: includes/class-woosg.php:994
 msgid "You cannot add this grouped to the cart."
 msgstr ""
 
 #. translators: keyword
-#: includes/class-woosg.php:1198
+#: includes/class-woosg.php:1224
+#, php-format
 msgid "No results found for \"%s\""
 msgstr ""
 
-#: includes/class-woosg.php:1245
+#: includes/class-woosg.php:1271
 msgid "Smart grouped"
 msgstr ""
 
-#: includes/class-woosg.php:1252
+#: includes/class-woosg.php:1278
 msgid "Grouped Products"
 msgstr ""
 
-#: includes/class-woosg.php:1294
+#: includes/class-woosg.php:1320
 msgid "Product wasn't returned."
 msgstr ""
 
-#: includes/class-woosg.php:1307
+#: includes/class-woosg.php:1333
 msgid "Search settings"
 msgstr ""
 
-#: includes/class-woosg.php:1314
+#: includes/class-woosg.php:1340
 msgid "Update Options"
 msgstr ""
 
-#: includes/class-woosg.php:1324
+#: includes/class-woosg.php:1350
 msgid "settings"
 msgstr ""
 
-#: includes/class-woosg.php:1329
+#: includes/class-woosg.php:1355
 msgid "searching..."
 msgstr ""
 
-#: includes/class-woosg.php:1331
+#: includes/class-woosg.php:1357
 msgid "Type any keyword to search"
 msgstr ""
 
-#: includes/class-woosg.php:1337
+#: includes/class-woosg.php:1363
 msgid "Selected"
 msgstr ""
 
-#: includes/class-woosg.php:1373
+#: includes/class-woosg.php:1399
 msgid "+ Add heading/paragraph"
 msgstr ""
 
-#: includes/class-woosg.php:1378
+#: includes/class-woosg.php:1404
 msgid "Regular price"
 msgstr ""
 
-#: includes/class-woosg.php:1382
+#: includes/class-woosg.php:1408
 msgid "This price was used for displaying only. Always put a price in the General tab to display the Add to Cart button."
 msgstr ""
 
-#: includes/class-woosg.php:1422
+#: includes/class-woosg.php:1448
 msgid "Custom display price"
 msgstr ""
 
-#: includes/class-woosg.php:1435
+#: includes/class-woosg.php:1461
 msgid "Unset (default setting)"
 msgstr ""
 
-#: includes/class-woosg.php:1447
+#: includes/class-woosg.php:1473
 msgid "Above text"
 msgstr ""
 
-#: includes/class-woosg.php:1458
+#: includes/class-woosg.php:1484
 msgid "Under text"
 msgstr ""
 
-#: includes/class-woosg.php:1497
+#: includes/class-woosg.php:1523
 msgid "Add"
 msgstr ""
 
-#: includes/class-woosg.php:1499
-#: includes/class-woosg.php:1519
+#: includes/class-woosg.php:1525
+#: includes/class-woosg.php:1545
 msgid "Remove"
 msgstr ""
 
-#: includes/class-woosg.php:1508
+#: includes/class-woosg.php:1534
 msgid "Default quantity"
 msgstr ""
 
 #. translators: count
-#: includes/class-woosg.php:2215
+#: includes/class-woosg.php:2241
+#, php-format
 msgid "Grouped (%d)"
 msgstr ""
 
-#: includes/class-woosg.php:2293
+#: includes/class-woosg.php:2319
 msgid "Before wrapper"
 msgstr ""
 
-#: includes/class-woosg.php:2294
+#: includes/class-woosg.php:2320
 msgid "After wrapper"
 msgstr ""
 
-#: includes/class-woosg.php:2295
+#: includes/class-woosg.php:2321
 msgid "Before products"
 msgstr ""
 
-#: includes/class-woosg.php:2296
+#: includes/class-woosg.php:2322
 msgid "After products"
 msgstr ""
 
-#: includes/class-woosg.php:2297
+#: includes/class-woosg.php:2323
 msgid "Before sub-product"
 msgstr ""
 
-#: includes/class-woosg.php:2298
+#: includes/class-woosg.php:2324
 msgid "After sub-product"
 msgstr ""
 
-#: includes/class-woosg.php:2299
+#: includes/class-woosg.php:2325
 msgid "Before sub-product thumbnail"
 msgstr ""
 
-#: includes/class-woosg.php:2300
+#: includes/class-woosg.php:2326
 msgid "After sub-product thumbnail"
 msgstr ""
 
-#: includes/class-woosg.php:2301
+#: includes/class-woosg.php:2327
 msgid "Before sub-product name"
 msgstr ""
 
-#: includes/class-woosg.php:2302
+#: includes/class-woosg.php:2328
 msgid "After sub-product name"
 msgstr ""
 
-#: includes/class-woosg.php:2303
+#: includes/class-woosg.php:2329
 msgid "Before sub-product price"
 msgstr ""
 
-#: includes/class-woosg.php:2304
+#: includes/class-woosg.php:2330
 msgid "After sub-product price"
 msgstr ""
 
-#: includes/class-woosg.php:2305
+#: includes/class-woosg.php:2331
 msgid "Before sub-product quantity"
 msgstr ""
 
-#: includes/class-woosg.php:2306
+#: includes/class-woosg.php:2332
 msgid "After sub-product quantity"
 msgstr ""
