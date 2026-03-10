@@ -132,6 +132,9 @@ if ( ! class_exists( 'WC_Product_Woosg' ) && class_exists( 'WC_Product' ) ) {
 							$item['id'] = $new_id;
 						}
 
+						$item['id']  = apply_filters( 'woosg_item_id', $item['id'] );
+						$item['qty'] = apply_filters( 'woosg_item_qty', $item['qty'] );
+
 						$data[] = $item;
 					}
 				} else {
