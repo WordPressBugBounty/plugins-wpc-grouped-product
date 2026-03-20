@@ -39,6 +39,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 
             // Settings
             add_action( 'admin_init', [ $this, 'register_settings' ] );
+            add_filter( 'pre_update_option', [ $this, 'last_saved' ], 10, 2 );
             add_action( 'admin_menu', [ $this, 'admin_menu' ] );
 
             // Enqueue frontend scripts
@@ -164,6 +165,15 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                     'type'              => 'array',
                     'sanitize_callback' => [ 'WPCleverWoosg_Helper', 'sanitize_array' ],
             ] );
+        }
+
+        function last_saved( $value, $option ) {
+            if ( $option == 'woosg_settings' || $option == 'woosg_localization' ) {
+                $value['_last_saved']    = current_time( 'timestamp' );
+                $value['_last_saved_by'] = get_current_user_id();
+            }
+
+            return $value;
         }
 
         function admin_menu() {
@@ -478,7 +488,16 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                 <?php self::search_settings(); ?>
                                 <tr class="submit">
                                     <th colspan="2">
-                                        <?php settings_fields( 'woosg_settings' ); ?><?php submit_button(); ?>
+                                        <div class="wpclever_submit">
+                                            <?php
+                                            settings_fields( 'woosg_settings' );
+                                            submit_button( '', 'primary', 'submit', false );
+
+                                            if ( function_exists( 'wpc_last_saved' ) ) {
+                                                wpc_last_saved( WPCleverWoosg_Helper()->get_settings() );
+                                            }
+                                            ?>
+                                        </div>
                                         <a style="display: none;" class="wpclever_export" data-key="woosg_settings"
                                            data-name="settings"
                                            href="#"><?php esc_html_e( 'import / export', 'wpc-grouped-product' ); ?></a>
@@ -644,7 +663,16 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                 </tr>
                                 <tr class="submit">
                                     <th colspan="2">
-                                        <?php settings_fields( 'woosg_localization' ); ?><?php submit_button(); ?>
+                                        <div class="wpclever_submit">
+                                            <?php
+                                            settings_fields( 'woosg_localization' );
+                                            submit_button( '', 'primary', 'submit', false );
+
+                                            if ( function_exists( 'wpc_last_saved' ) ) {
+                                                wpc_last_saved( get_option( 'woosg_localization', [] ) );
+                                            }
+                                            ?>
+                                        </div>
                                         <a style="display: none;" class="wpclever_export" data-key="woosg_localization"
                                            data-name="settings"
                                            href="#"><?php esc_html_e( 'import / export', 'wpc-grouped-product' ); ?></a>
