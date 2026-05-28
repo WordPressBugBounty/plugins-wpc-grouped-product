@@ -3,23 +3,23 @@
 Plugin Name: WPC Grouped Product for WooCommerce
 Plugin URI: https://wpclever.net/
 Description: WPC Grouped Product helps you make up standalone products that are presented as a group.
-Version: 5.2.8
+Version: 5.2.9
 Author: WPClever
 Author URI: https://wpclever.net
 Text Domain: wpc-grouped-product
 Domain Path: /languages/
 Requires Plugins: woocommerce
 Requires at least: 4.0
-Tested up to: 6.9
+Tested up to: 7.0
 WC requires at least: 3.0
-WC tested up to: 10.7
+WC tested up to: 10.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 defined( 'ABSPATH' ) || exit;
 
-! defined( 'WOOSG_VERSION' ) && define( 'WOOSG_VERSION', '5.2.8' );
+! defined( 'WOOSG_VERSION' ) && define( 'WOOSG_VERSION', '5.2.9' );
 ! defined( 'WOOSG_LITE' ) && define( 'WOOSG_LITE', __FILE__ );
 ! defined( 'WOOSG_FILE' ) && define( 'WOOSG_FILE', __FILE__ );
 ! defined( 'WOOSG_URI' ) && define( 'WOOSG_URI', plugin_dir_url( __FILE__ ) );
@@ -28,12 +28,14 @@ defined( 'ABSPATH' ) || exit;
 ! defined( 'WOOSG_REVIEWS' ) && define( 'WOOSG_REVIEWS', 'https://wordpress.org/support/plugin/wpc-grouped-product/reviews/' );
 ! defined( 'WOOSG_CHANGELOG' ) && define( 'WOOSG_CHANGELOG', 'https://wordpress.org/plugins/wpc-grouped-product/#developers' );
 ! defined( 'WOOSG_DISCUSSION' ) && define( 'WOOSG_DISCUSSION', 'https://wordpress.org/support/plugin/wpc-grouped-product' );
-! defined( 'WPC_URI' ) && define( 'WPC_URI', WOOSG_URI );
 
-include 'includes/log/wpc-log.php';
-include 'includes/dashboard/wpc-dashboard.php';
-include 'includes/kit/wpc-kit.php';
-include 'includes/hpos.php';
+// WPC Core
+require_once __DIR__ . '/includes/wpc-core/wpc-core.php';
+wpc_core_register( [
+	'file'    => __FILE__,
+	'version' => WOOSG_VERSION,
+	'prefix'  => 'woosg',
+] );
 
 if ( ! function_exists( 'woosg_init' ) ) {
     add_action( 'plugins_loaded', 'woosg_init', 11 );
