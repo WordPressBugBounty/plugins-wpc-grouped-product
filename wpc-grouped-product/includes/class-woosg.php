@@ -137,8 +137,6 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
             self::$types      = (array) apply_filters( 'woosg_product_types', self::$types );
             self::$image_size = apply_filters( 'woosg_image_size', self::$image_size );
 
-            // load text-domain
-            load_plugin_textdomain( 'wpc-grouped-product', false, basename( WOOSG_DIR ) . '/languages/' );
 
             // shortcode
             add_shortcode( 'woosg', [ $this, 'shortcode' ] );
@@ -185,7 +183,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 
         function admin_menu_content() {
             add_thickbox();
-            $active_tab = sanitize_key( $_GET['tab'] ?? 'settings' );
+            $active_tab = sanitize_key( wp_unslash( $_GET['tab'] ?? 'settings' ) );
             ?>
             <div class="wpclever_settings_page wrap">
                 <div class="wpclever_settings_page_header">
@@ -208,7 +206,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                     </div>
                 </div>
                 <h2></h2>
-                <?php if ( isset( $_GET['settings-updated'] ) && $_GET['settings-updated'] ) { ?>
+                <?php if ( isset( $_GET['settings-updated'] ) && sanitize_text_field( wp_unslash( $_GET['settings-updated'] ?? '' ) ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
                     <div class="notice notice-success is-dismissible">
                         <p><?php esc_html_e( 'Settings updated.', 'wpc-grouped-product' ); ?></p>
                     </div>
@@ -453,7 +451,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 <option value="no" <?php selected( $change_price, 'no' ); ?>><?php esc_html_e( 'No', 'wpc-grouped-product' ); ?></option>
                                             </select> </label> <label>
                                             <input type="text" name="woosg_settings[change_price_custom]"
-                                                   value="<?php echo WPCleverWoosg_Helper()::get_setting( 'change_price_custom', '.summary > .price' ); ?>"
+                                                   value="<?php echo esc_attr( WPCleverWoosg_Helper()::get_setting( 'change_price_custom', '.summary > .price' ) ); ?>"
                                                    placeholder=".summary > .price" class="woosg_change_price_custom"/>
                                         </label>
                                         <p class="description"><?php esc_html_e( 'Change the main product price when choosing the variation of grouped product. It uses JavaScript to change product price so it is very dependent on theme’s HTML. If it cannot find and update the product price, please contact us and we can help you adjust the JS file.', 'wpc-grouped-product' ); ?></p>
@@ -693,8 +691,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 
                                     echo '<p>';
 
-                                    $num   = absint( $_GET['num'] ?? 50 );
-                                    $paged = absint( $_GET['paged'] ?? 0 );
+                                    $num   = absint( wp_unslash( $_GET['num'] ?? 50 ) );
+                                    $paged = absint( wp_unslash( $_GET['paged'] ?? 0 ) );
 
                                     if ( isset( $_GET['act'] ) && ( $_GET['act'] === 'convert' ) ) {
                                         $args = [
@@ -886,7 +884,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
 
         function enqueue_scripts() {
             // carousel
-            wp_enqueue_style( 'slick', WOOSG_URI . 'assets/slick/slick.css' );
+            wp_enqueue_style( 'slick', WOOSG_URI . 'assets/slick/slick.css', [], WOOSG_VERSION );
             wp_enqueue_script( 'slick', WOOSG_URI . 'assets/slick/slick.min.js', [ 'jquery' ], WOOSG_VERSION, true );
 
             wp_enqueue_style( 'woosg-frontend', WOOSG_URI . 'assets/css/frontend.css', [], WOOSG_VERSION );
@@ -938,7 +936,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 return null;
             }
 
-            wp_enqueue_style( 'hint', WOOSG_URI . 'assets/css/hint.css' );
+            wp_enqueue_style( 'hint', WOOSG_URI . 'assets/css/hint.css', [], WOOSG_VERSION );
             wp_enqueue_style( 'woosg-backend', WOOSG_URI . 'assets/css/backend.css', [], WOOSG_VERSION );
             wp_enqueue_script( 'woosg-backend', WOOSG_URI . 'assets/js/backend.js', [
                     'jquery',
@@ -999,7 +997,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 $items = $product->get_items();
 
                 if ( isset( $_REQUEST['woosg_ids'] ) ) {
-                    $items = self::get_items( $_REQUEST['woosg_ids'], $product );
+                    $woosg_ids = is_array( $_REQUEST['woosg_ids'] ) ? map_deep( wp_unslash( $_REQUEST['woosg_ids'] ), 'sanitize_text_field' ) : sanitize_text_field( wp_unslash( $_REQUEST['woosg_ids'] ) );
+                    $items     = self::get_items( $woosg_ids, $product ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 }
 
                 if ( empty( $items ) ) {
@@ -1037,7 +1036,7 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
             if ( $item_product && $item_product->is_type( 'woosg' ) && ( $ids = get_post_meta( $product_id, 'woosg_ids', true ) ) ) {
                 // make sure that is grouped
                 if ( isset( $_REQUEST['woosg_ids'] ) ) {
-                    $ids = $_REQUEST['woosg_ids'];
+                    $ids = is_array( $_REQUEST['woosg_ids'] ) ? map_deep( wp_unslash( $_REQUEST['woosg_ids'] ), 'sanitize_text_field' ) : sanitize_text_field( wp_unslash( $_REQUEST['woosg_ids'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
                     unset( $_REQUEST['woosg_ids'] );
                 }
 
@@ -1149,31 +1148,31 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
         }
 
         function ajax_update_search_settings() {
-            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'woosg-security' ) || ! current_user_can( 'manage_options' ) ) {
+            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['nonce'] ) ), 'woosg-security' ) || ! current_user_can( 'manage_options' ) ) {
                 die( 'Permissions check failed!' );
             }
 
             $settings                    = (array) get_option( 'woosg_settings', [] );
-            $settings['search_limit']    = (int) sanitize_text_field( $_POST['limit'] );
-            $settings['search_sku']      = sanitize_text_field( $_POST['sku'] );
-            $settings['search_id']       = sanitize_text_field( $_POST['id'] );
-            $settings['search_exact']    = sanitize_text_field( $_POST['exact'] );
-            $settings['search_sentence'] = sanitize_text_field( $_POST['sentence'] );
-            $settings['search_same']     = sanitize_text_field( $_POST['same'] );
-            $settings['search_types']    = array_map( 'sanitize_text_field', (array) $_POST['types'] );
+            $settings['search_limit']    = (int) sanitize_text_field( wp_unslash( $_POST['limit'] ?? '' ) );
+            $settings['search_sku']      = sanitize_text_field( wp_unslash( $_POST['sku'] ?? '' ) );
+            $settings['search_id']       = sanitize_text_field( wp_unslash( $_POST['id'] ?? '' ) );
+            $settings['search_exact']    = sanitize_text_field( wp_unslash( $_POST['exact'] ?? '' ) );
+            $settings['search_sentence'] = sanitize_text_field( wp_unslash( $_POST['sentence'] ?? '' ) );
+            $settings['search_same']     = sanitize_text_field( wp_unslash( $_POST['same'] ?? '' ) );
+            $settings['search_types']    = array_map( 'sanitize_text_field', wp_unslash( (array) $_POST['types'] ?? [] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 
             update_option( 'woosg_settings', $settings );
             wp_die();
         }
 
         function ajax_get_search_results() {
-            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['nonce'] ), 'woosg-security' ) ) {
+            if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['nonce'] ) ), 'woosg-security' ) ) {
                 die( 'Permissions check failed!' );
             }
 
             $types     = WPCleverWoosg_Helper()::get_setting( 'search_types', [ 'all' ] );
-            $keyword   = wp_unslash( sanitize_text_field( $_POST['keyword'] ?? '' ) );
-            $added_ids = explode( ',', WPCleverWoosg_Helper()::clean_ids( sanitize_text_field( $_POST['ids'] ?? '' ) ) );
+            $keyword   = sanitize_text_field( wp_unslash( $_POST['keyword'] ?? '' ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+            $added_ids = explode( ',', WPCleverWoosg_Helper()::clean_ids( sanitize_text_field( wp_unslash( $_POST['ids'] ?? '' ) ) ) );
 
             if ( ( WPCleverWoosg_Helper()::get_setting( 'search_id', 'no' ) === 'yes' ) && is_numeric( $keyword ) ) {
                 // search by id
@@ -1547,9 +1546,6 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 $step = 1;
             }
 
-            $hidden_input = '<input type="hidden" name="' . esc_attr( 'woosg_ids[' . $key . '][id]' ) . '" value="' . esc_attr( $product_id ) . '"/><input type="hidden" name="' . esc_attr( 'woosg_ids[' . $key . '][sku]' ) . '" value="' . esc_attr( $product_sku ) . '"/>';
-            $qty_input    = '<input type="number" name="' . esc_attr( 'woosg_ids[' . $key . '][qty]' ) . '" value="' . esc_attr( $qty ) . '" min="0" step="' . esc_attr( $step ) . '"/>';
-
             if ( $search ) {
                 $remove_btn = '<span class="woosg-remove hint--left" aria-label="' . esc_html__( 'Add', 'wpc-grouped-product' ) . '">+</span>';
             } else {
@@ -1562,51 +1558,71 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 $edit_link = get_edit_post_link( $product_id );
             }
 
-            echo '<li class="' . esc_attr( $product_class ) . '" data-id="' . esc_attr( $product_id ) . '" data-price="' . esc_attr( $product->get_price() ) . '">' . $hidden_input . '<span class="move"></span><span class="qty hint--right" aria-label="' . esc_html__( 'Default quantity', 'wpc-grouped-product' ) . '">' . $qty_input . '</span><span class="img">' . $product->get_image( [
-                            30,
-                            30
-                    ] ) . '</span><span class="data"><span class="name">' . esc_html( $product->get_name() ) . '</span> <span class="info">' . $product->get_price_html() . '</span> ' . ( $product->is_sold_individually() ? '<span class="info">sold individually</span> ' : '' ) . '</span> <span class="type"><a href="' . esc_url( $edit_link ) . '" target="_blank">' . esc_attr( $product->get_type() ) . '<br/>#' . esc_attr( $product_id ) . '</a></span> ' . $remove_btn . '</li>';
+            echo '<li class="' . esc_attr( $product_class ) . '" data-id="' . esc_attr( $product_id ) . '" data-price="' . esc_attr( $product->get_price() ) . '">';
+            echo '<input type="hidden" name="' . esc_attr( 'woosg_ids[' . $key . '][id]' ) . '" value="' . esc_attr( $product_id ) . '"/>';
+            echo '<input type="hidden" name="' . esc_attr( 'woosg_ids[' . $key . '][sku]' ) . '" value="' . esc_attr( $product_sku ) . '"/>';
+            echo '<span class="move"></span><span class="qty hint--right" aria-label="' . esc_html__( 'Default quantity', 'wpc-grouped-product' ) . '">';
+            echo '<input type="number" name="' . esc_attr( 'woosg_ids[' . $key . '][qty]' ) . '" value="' . esc_attr( $qty ) . '" min="0" step="' . esc_attr( $step ) . '"/>';
+            echo '</span><span class="img">' . wp_kses_post( $product->get_image( [ 30, 30 ] ) ) . '</span>';
+            echo '<span class="data"><span class="name">' . esc_html( $product->get_name() ) . '</span> <span class="info">' . wp_kses_post( $product->get_price_html() ) . '</span> ' . ( $product->is_sold_individually() ? '<span class="info">sold individually</span> ' : '' ) . '</span>';
+            echo ' <span class="type"><a href="' . esc_url( $edit_link ) . '" target="_blank">' . esc_attr( $product->get_type() ) . '<br/>#' . esc_attr( $product_id ) . '</a></span> ';
+            echo wp_kses_post( $remove_btn ) . '</li>';
         }
 
         function text_data_li( $data = [] ) {
             $key  = WPCleverWoosg_Helper()::generate_key();
             $data = array_merge( [ 'type' => 'h1', 'text' => '' ], $data );
-            $type = '<select name="' . esc_attr( 'woosg_ids[' . $key . '][type]' ) . '"><option value="h1" ' . selected( $data['type'], 'h1', false ) . '>H1</option><option value="h2" ' . selected( $data['type'], 'h2', false ) . '>H2</option><option value="h3" ' . selected( $data['type'], 'h3', false ) . '>H3</option><option value="h4" ' . selected( $data['type'], 'h4', false ) . '>H4</option><option value="h5" ' . selected( $data['type'], 'h5', false ) . '>H5</option><option value="h6" ' . selected( $data['type'], 'h6', false ) . '>H6</option><option value="p" ' . selected( $data['type'], 'p', false ) . '>p</option><option value="span" ' . selected( $data['type'], 'span', false ) . '>span</option><option value="none" ' . selected( $data['type'], 'none', false ) . '>none</option></select>';
 
-            echo '<li class="woosg-li-text"><span class="move"></span><span class="tag">' . $type . '</span><span class="data"><input type="text" name="' . esc_attr( 'woosg_ids[' . $key . '][text]' ) . '" value="' . esc_attr( $data['text'] ) . '"/></span><span class="woosg-remove hint--left" aria-label="' . esc_html__( 'Remove', 'wpc-grouped-product' ) . '">×</span></li>';
+            echo '<li class="woosg-li-text"><span class="move"></span><span class="tag">';
+            echo '<select name="' . esc_attr( 'woosg_ids[' . $key . '][type]' ) . '">';
+            echo '<option value="h1" ' . selected( $data['type'], 'h1', false ) . '>H1</option>';
+            echo '<option value="h2" ' . selected( $data['type'], 'h2', false ) . '>H2</option>';
+            echo '<option value="h3" ' . selected( $data['type'], 'h3', false ) . '>H3</option>';
+            echo '<option value="h4" ' . selected( $data['type'], 'h4', false ) . '>H4</option>';
+            echo '<option value="h5" ' . selected( $data['type'], 'h5', false ) . '>H5</option>';
+            echo '<option value="h6" ' . selected( $data['type'], 'h6', false ) . '>H6</option>';
+            echo '<option value="p" ' . selected( $data['type'], 'p', false ) . '>p</option>';
+            echo '<option value="span" ' . selected( $data['type'], 'span', false ) . '>span</option>';
+            echo '<option value="none" ' . selected( $data['type'], 'none', false ) . '>none</option>';
+            echo '</select>';
+            echo '</span><span class="data"><input type="text" name="' . esc_attr( 'woosg_ids[' . $key . '][text]' ) . '" value="' . esc_attr( $data['text'] ) . '"/></span><span class="woosg-remove hint--left" aria-label="' . esc_html__( 'Remove', 'wpc-grouped-product' ) . '">×</span></li>';
         }
 
         function process_product_meta_woosg( $post_id ) {
+            if ( ! isset( $_POST['woocommerce_meta_nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['woocommerce_meta_nonce'] ) ), 'woocommerce_save_data' ) ) {
+                return;
+            }
+
             if ( isset( $_POST['woosg_ids'] ) ) {
-                update_post_meta( $post_id, 'woosg_ids', WPCleverWoosg_Helper()::sanitize_array( $_POST['woosg_ids'] ) );
+                update_post_meta( $post_id, 'woosg_ids', WPCleverWoosg_Helper()::sanitize_array( map_deep( wp_unslash( $_POST['woosg_ids'] ?? [] ), 'sanitize_text_field' ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
             }
 
             if ( isset( $_POST['woosg_show_atc'] ) ) {
-                update_post_meta( $post_id, 'woosg_show_atc', sanitize_text_field( $_POST['woosg_show_atc'] ) );
+                update_post_meta( $post_id, 'woosg_show_atc', sanitize_text_field( wp_unslash( $_POST['woosg_show_atc'] ?? '' ) ) );
             }
 
             if ( isset( $_POST['woosg_including_main'] ) ) {
-                update_post_meta( $post_id, 'woosg_including_main', sanitize_text_field( $_POST['woosg_including_main'] ) );
+                update_post_meta( $post_id, 'woosg_including_main', sanitize_text_field( wp_unslash( $_POST['woosg_including_main'] ?? '' ) ) );
             }
 
             if ( isset( $_POST['woosg_selector'] ) ) {
-                update_post_meta( $post_id, 'woosg_selector', sanitize_text_field( $_POST['woosg_selector'] ) );
+                update_post_meta( $post_id, 'woosg_selector', sanitize_text_field( wp_unslash( $_POST['woosg_selector'] ?? '' ) ) );
             }
 
             if ( isset( $_POST['woosg_custom_price'] ) ) {
-                update_post_meta( $post_id, 'woosg_custom_price', sanitize_post_field( 'post_content', $_POST['woosg_custom_price'], $post_id, 'display' ) );
+                update_post_meta( $post_id, 'woosg_custom_price', sanitize_text_field( wp_unslash( $_POST['woosg_custom_price'] ?? '' ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
             }
 
             if ( isset( $_POST['woosg_before_text'] ) ) {
-                update_post_meta( $post_id, 'woosg_before_text', sanitize_post_field( 'post_content', $_POST['woosg_before_text'], $post_id, 'display' ) );
+                update_post_meta( $post_id, 'woosg_before_text', wp_kses_post( wp_unslash( $_POST['woosg_before_text'] ?? '' ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
             }
 
             if ( isset( $_POST['woosg_after_text'] ) ) {
-                update_post_meta( $post_id, 'woosg_after_text', sanitize_post_field( 'post_content', $_POST['woosg_after_text'], $post_id, 'display' ) );
+                update_post_meta( $post_id, 'woosg_after_text', wp_kses_post( wp_unslash( $_POST['woosg_after_text'] ?? '' ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
             }
 
             if ( isset( $_POST['woosg_layout'] ) ) {
-                update_post_meta( $post_id, 'woosg_layout', sanitize_text_field( $_POST['woosg_layout'] ) );
+                update_post_meta( $post_id, 'woosg_layout', sanitize_text_field( wp_unslash( $_POST['woosg_layout'] ?? '' ) ) );
             }
         }
 
@@ -1969,7 +1985,19 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                         if ( apply_filters( 'woosg_use_woocommerce_quantity_input', true ) ) {
                                             woocommerce_quantity_input( $qty_args, $product );
                                         } else {
-                                            echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="quantity"/>', $qty_args, $product );
+                                            echo wp_kses( apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="quantity"/>', $qty_args, $product ), [
+                                                    'input' => [
+                                                            'type'  => true,
+                                                            'class' => true,
+                                                            'id'    => true,
+                                                            'name'  => true,
+                                                            'value' => true,
+                                                            'min'   => true,
+                                                            'max'   => true,
+                                                            'step'  => true,
+                                                            'style' => true,
+                                                    ]
+                                            ] );
                                         }
 
                                         if ( $show_plus_minus ) {
@@ -2057,7 +2085,19 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                                                 if ( apply_filters( 'woosg_use_woocommerce_quantity_input', true ) ) {
                                                     woocommerce_quantity_input( $qty_args, $product );
                                                 } else {
-                                                    echo apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="quantity"/>', $qty_args, $product );
+                                                    echo wp_kses( apply_filters( 'woosg_quantity_input', '<input type="number" class="input-text woosg-qty woosg_qty qty text" value="' . esc_attr( $item_qty ) . '" min="' . esc_attr( $min ) . '" max="' . esc_attr( $max ) . '" name="quantity"/>', $qty_args, $product ), [
+                                                            'input' => [
+                                                                    'type'  => true,
+                                                                    'class' => true,
+                                                                    'id'    => true,
+                                                                    'name'  => true,
+                                                                    'value' => true,
+                                                                    'min'   => true,
+                                                                    'max'   => true,
+                                                                    'step'  => true,
+                                                                    'style' => true,
+                                                            ]
+                                                    ] );
                                                 }
 
                                                 if ( $show_plus_minus ) {
@@ -2096,9 +2136,9 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                             echo '<div class="' . esc_attr( apply_filters( 'woosg_item_text_class', $item_class, $item, $global_product, $order ) ) . '">';
 
                             if ( empty( $item['type'] ) || ( $item['type'] === 'none' ) ) {
-                                echo $item_text;
+                                echo wp_kses_post( $item_text );
                             } else {
-                                echo '<' . $item['type'] . '>' . $item_text . '</' . $item['type'] . '>';
+                                echo '<' . sanitize_key( $item['type'] ) . '>' . wp_kses_post( $item_text ) . '</' . sanitize_key( $item['type'] ) . '>';
                             }
 
                             echo '</div>';
