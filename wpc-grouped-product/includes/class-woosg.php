@@ -997,7 +997,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
                 $items = $product->get_items();
 
                 if ( isset( $_REQUEST['woosg_ids'] ) ) {
-                    $woosg_ids = is_array( $_REQUEST['woosg_ids'] ) ? map_deep( wp_unslash( $_REQUEST['woosg_ids'] ), 'sanitize_text_field' ) : sanitize_text_field( wp_unslash( $_REQUEST['woosg_ids'] ) );
+                    // Use wp_strip_all_tags instead of sanitize_text_field to preserve URL-encoded JSON characters (e.g. %7B, %22) in the ids string.
+                    $woosg_ids = is_array( $_REQUEST['woosg_ids'] ) ? map_deep( wp_unslash( $_REQUEST['woosg_ids'] ), 'wp_strip_all_tags' ) : wp_strip_all_tags( wp_unslash( $_REQUEST['woosg_ids'] ) );
                     $items     = self::get_items( $woosg_ids, $product ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
                 }
 
@@ -1036,7 +1037,8 @@ if ( ! class_exists( 'WPCleverWoosg' ) ) {
             if ( $item_product && $item_product->is_type( 'woosg' ) && ( $ids = get_post_meta( $product_id, 'woosg_ids', true ) ) ) {
                 // make sure that is grouped
                 if ( isset( $_REQUEST['woosg_ids'] ) ) {
-                    $ids = is_array( $_REQUEST['woosg_ids'] ) ? map_deep( wp_unslash( $_REQUEST['woosg_ids'] ), 'sanitize_text_field' ) : sanitize_text_field( wp_unslash( $_REQUEST['woosg_ids'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
+                    // Use wp_strip_all_tags instead of sanitize_text_field to preserve URL-encoded JSON characters (e.g. %7B, %22) in the ids string.
+                    $ids = is_array( $_REQUEST['woosg_ids'] ) ? map_deep( wp_unslash( $_REQUEST['woosg_ids'] ), 'wp_strip_all_tags' ) : wp_strip_all_tags( wp_unslash( $_REQUEST['woosg_ids'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
                     unset( $_REQUEST['woosg_ids'] );
                 }
 
